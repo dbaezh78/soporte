@@ -1,0 +1,5 @@
+ 
+Kill performed successfully
+Machine sysadm (external IP address: 190.166.104.66, internal IP address: 172.16.10.11)
+successfully killed the threat RISDOG.EXE on Tue, 08 Jul 2025, 19:10:51 UTC.
+Threat path: \Device\HarddiskVolume3\acUsers\OneDrive - LA ANTILLANA COMERCIAL\RMoreno\Escritorio\Control de asistencia\ZK\fscommand\fscommand\RIS\Files\RISDOG.EXE

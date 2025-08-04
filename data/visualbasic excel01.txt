@@ -1,0 +1,12 @@
+Sub Button_cp-html_Click()
+    Dim hojaActual As Worksheet
+    Dim rangoACopiar As Range
+
+    ' Usar la hoja activa (donde está el botón)
+    Set hojaActual = ActiveSheet
+    Set rangoACopiar = hojaActual.Range("C614:C691")
+
+    ' Copiar al portapapeles
+    rangoACopiar.Copy
+End Sub
+

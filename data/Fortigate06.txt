@@ -1,0 +1,5028 @@
+LN-TM-ORBIS-2482330611DO # show full-configuration | grep 172.16.230
+
+LN-TM-ORBIS-2482330611DO # show full-configuration
+#config-version=FGT60F-7.4.7-FW-build2731-250120:opmode=1:vdom=0:user=Forti-ADM
+#conf_file_ver=4223275702874473
+#buildno=2731
+#global_vdom=1
+config system global
+    set admin-concurrent enable
+    set admin-console-timeout 0
+    set admin-forticloud-sso-default-profile ''
+    set admin-forticloud-sso-login enable
+    set admin-host ''
+    set admin-https-pki-required disable
+    set admin-https-redirect disable
+    unset admin-https-ssl-banned-ciphers
+    set admin-https-ssl-ciphersuites TLS-AES-128-GCM-SHA256 TLS-AES-256-GCM-SHA384 TLS-CHACHA20-POLY1305-SHA256
+    set admin-https-ssl-versions tlsv1-2 tlsv1-3
+    set admin-lockout-duration 60
+    set admin-lockout-threshold 3
+    set admin-login-max 100
+    set admin-port 80
+    set admin-reset-button enable
+    set admin-restrict-local disable
+    set admin-scp disable
+    set admin-server-cert "fg-orbis.laantillana.com"
+    set admin-sport 10443
+    set admin-ssh-grace-time 120
+    set admin-ssh-password enable
+    set admin-ssh-port 22
+    set admin-ssh-v1 disable
+    set admin-telnet enable
+    set admin-telnet-port 23
+    set admintimeout 30
+    set alias "FortiGate-60F"
+    set allow-traffic-redirect enable
+    set anti-replay strict
+    set arp-max-entry 131072
+    set auth-cert "Fortinet_Factory"
+    set auth-http-port 1000
+    set auth-https-port 1003
+    set auth-ike-saml-port 1001
+    set auth-keepalive disable
+    set auth-session-limit block-new
+    set auto-auth-extension-device enable
+    set autorun-log-fsck disable
+    set av-failopen pass
+    set av-failopen-session disable
+    set batch-cmdb enable
+    set bfd-affinity "1"
+    set block-session-timer 30
+    set br-fdb-max-entry 8192
+    set cert-chain-max 8
+    set cfg-save automatic
+    set check-protocol-header loose
+    set check-reset-range disable
+    set cli-audit-log disable
+    set cloud-communication enable
+    set clt-cert-req disable
+    set cmdbsvr-affinity "1"
+    set cpu-use-threshold 90
+    set csr-ca-attribute enable
+    set daily-restart disable
+    set default-service-source-port 1-65535
+    set delay-tcp-npu-session disable
+    set device-idle-timeout 300
+    set dh-params 2048
+    set dhcp-lease-backup-interval 60
+    set dnsproxy-worker-count 1
+    set early-tcp-npu-session disable
+    set extender-controller-reserved-network 10.252.0.1 255.255.0.0
+    set fds-statistics enable
+    unset fgd-alert-subscription
+    set forticonverter-config-upload disable
+    set forticonverter-integration disable
+    set fortiextender enable
+    set fortiextender-data-port 25246
+    set fortiextender-discovery-lockdown disable
+    set fortiextender-provision-on-authorization disable
+    set fortiextender-vlan-mode disable
+    set fortigslb-integration disable
+    set fortiservice-port 8013
+    set fortitoken-cloud enable
+    set fortitoken-cloud-push-status enable
+    set fortitoken-cloud-sync-interval 24
+    set gui-app-detection-sdwan disable
+    set gui-auto-upgrade-setup-warning disable
+    set gui-cdn-usage enable
+    set gui-certificates enable
+    set gui-custom-language disable
+    set gui-date-format yyyy/MM/dd
+    set gui-date-time-source system
+    set gui-device-latitude ''
+    set gui-device-longitude ''
+    set gui-display-hostname disable
+    set gui-firmware-upgrade-warning enable
+    set gui-forticare-registration-setup-warning enable
+    set gui-fortigate-cloud-sandbox disable
+    set gui-ipv6 disable
+    set gui-local-out disable
+    set gui-replacement-message-groups disable
+    set gui-rest-api-cache disable
+    set gui-theme mariner
+    set gui-wireless-opensecurity disable
+    set gui-workflow-management disable
+    set ha-affinity "1"
+    set honor-df enable
+    set hostname "LN-TM-ORBIS-2482330611DO"
+    set igmp-state-limit 3200
+    set interface-subnet-usage enable
+    set internet-service-database standard
+    set ip-fragment-mem-thresholds 32
+    set ip-src-port-range 1024-25000
+    set ipsec-asic-offload enable
+    set ipsec-ha-seqjump-rate 10
+    set ipsec-hmac-offload enable
+    set ipv6-accept-dad 1
+    set ipv6-allow-anycast-probe disable
+    set ipv6-allow-local-in-silent-drop enable
+    set ipv6-allow-multicast-probe disable
+    set ipv6-allow-traffic-redirect enable
+    set language english
+    set ldapconntimeout 500
+    set lldp-reception disable
+    set lldp-transmission disable
+    set log-single-cpu-high disable
+    set log-ssl-connection disable
+    set log-uuid-address disable
+    set login-timestamp disable
+    set management-ip ''
+    set management-port-use-admin-sport enable
+    set management-vdom "root"
+    set max-route-cache-size 0
+    set memory-use-threshold-extreme 95
+    set memory-use-threshold-green 82
+    set memory-use-threshold-red 88
+    set miglogd-children 0
+    set multi-factor-authentication optional
+    set ndp-max-entry 0
+    set npu-neighbor-update disable
+    set pmtu-discovery disable
+    set policy-auth-concurrent 0
+    set post-login-banner disable
+    set pre-login-banner disable
+    set private-data-encryption disable
+    set proxy-auth-lifetime disable
+    set proxy-auth-timeout 10
+    set proxy-cert-use-mgmt-vdom disable
+    set proxy-hardware-acceleration enable
+    set proxy-keep-alive-mode session
+    set proxy-resource-mode disable
+    set proxy-worker-count 0
+    set purdue-level 3
+    set quic-ack-thresold 3
+    set quic-congestion-control-algo cubic
+    set quic-max-datagram-size 1500
+    set quic-pmtud enable
+    set quic-tls-handshake-timeout 5
+    set quic-udp-payload-size-shaping-per-cid enable
+    set radius-port 1812
+    set reboot-upon-config-restore enable
+    set refresh 0
+    set remoteauthtimeout 5
+    set reset-sessionless-tcp disable
+    set rest-api-key-url-query disable
+    set revision-backup-on-logout disable
+    set revision-image-auto-backup disable
+    set scanunit-count 0
+    set security-rating-run-on-schedule enable
+    set send-pmtu-icmp enable
+    set sflowd-max-children-num 6
+    set snat-route-change disable
+    set special-file-23-support disable
+    set speedtest-server disable
+    set speedtestd-ctrl-port 5200
+    set speedtestd-server-port 5201
+    set ssl-min-proto-version TLSv1-2
+    set ssl-static-key-ciphers enable
+    set sslvpn-max-worker-count 0
+    set sslvpn-web-mode disable
+    set strict-dirty-session-check enable
+    set strong-crypto enable
+    set switch-controller enable
+    set switch-controller-reserved-network 10.255.0.1 255.255.0.0
+    set sys-perf-log-interval 5
+    set tcp-halfclose-timer 120
+    set tcp-halfopen-timer 10
+    set tcp-option enable
+    set tcp-rst-timer 5
+    set tcp-timewait-timer 1
+    set timezone "America/La_Paz"
+    set traffic-priority tos
+    set traffic-priority-level medium
+    set two-factor-email-expiry 60
+    set two-factor-fac-expiry 60
+    set two-factor-ftk-expiry 60
+    set two-factor-ftm-expiry 72
+    set two-factor-sms-expiry 60
+    set udp-idle-timer 180
+    set url-filter-count 1
+    set user-device-store-max-devices 20109
+    set user-device-store-max-unified-mem 100547993
+    set user-device-store-max-users 20109
+    set vdom-mode no-vdom
+    set vip-arp-range restricted
+    set virtual-switch-vlan enable
+    set vpn-ems-sn-check disable
+    set wad-memory-change-granularity 10
+    set wad-restart-mode none
+    set wad-source-affinity enable
+    set wad-worker-count 0
+    set wifi-ca-certificate "Fortinet_Wifi_CA"
+    set wifi-certificate "Fortinet_Wifi"
+    set wimax-4g-usb disable
+    set wireless-controller enable
+    set wireless-controller-port 5246
+    set fds-statistics-period 60
+end
+config system accprofile
+    edit "prof_admin"
+        set comments ''
+        set secfabgrp read-write
+        set ftviewgrp read-write
+        set authgrp read-write
+        set sysgrp read-write
+        set netgrp read-write
+        set loggrp read-write
+        set fwgrp read-write
+        set vpngrp read-write
+        set utmgrp read-write
+        set wifi read-write
+        set admintimeout-override disable
+        set cli-diagnose disable
+        set cli-get enable
+        set cli-show enable
+        set cli-exec enable
+        set cli-config enable
+        set system-execute-ssh enable
+        set system-execute-telnet enable
+    next
+end
+config system npu
+    set dedicated-management-cpu disable
+    set capwap-offload enable
+    set ipsec-mtu-override disable
+    set split-ipsec-engines disable
+    config priority-protocol
+        set bgp enable
+        set slbc enable
+        set bfd enable
+    end
+end
+config system np6xlite
+    edit "np6xlite_0"
+        set fastpath enable
+        set per-session-accounting traffic-log-only
+        set garbage-session-collector disable
+        set session-collector-interval 64
+        set session-timeout-interval 40
+        set session-timeout-random-range 8
+        set session-timeout-fixed disable
+        set ipsec-inner-fragment disable
+        set ipsec-throughput-msg-frequency disable
+        set ipsec-sts-timeout 5
+        config hpe
+            set tcpsyn-max 600000
+            set tcpsyn-ack-max 600000
+            set tcpfin-rst-max 600000
+            set tcp-others-max 600000
+            set udp-max 600000
+            set icmp-max 200000
+            set sctp-max 200000
+            set esp-max 200000
+            set ip-frag-max 200000
+            set ip-others-max 200000
+            set arp-max 200000
+            set l2-others-max 200000
+            set pri-type-max 200000
+            set enable-shaper disable
+        end
+        config fp-anomaly
+            set tcp-syn-fin allow
+            set tcp-fin-noack trap-to-host
+            set tcp-fin-only trap-to-host
+            set tcp-no-flag allow
+            set tcp-syn-data allow
+            set tcp-winnuke trap-to-host
+            set tcp-land trap-to-host
+            set udp-land trap-to-host
+            set icmp-land trap-to-host
+            set icmp-frag allow
+            set ipv4-land trap-to-host
+            set ipv4-proto-err trap-to-host
+            set ipv4-unknopt trap-to-host
+            set ipv4-optrr trap-to-host
+            set ipv4-optssrr trap-to-host
+            set ipv4-optlsrr trap-to-host
+            set ipv4-optstream trap-to-host
+            set ipv4-optsecurity trap-to-host
+            set ipv4-opttimestamp trap-to-host
+            set ipv4-csum-err drop
+            set tcp-csum-err drop
+            set udp-csum-err drop
+            set icmp-csum-err drop
+            set ipv6-land trap-to-host
+            set ipv6-proto-err trap-to-host
+            set ipv6-unknopt trap-to-host
+            set ipv6-saddr-err trap-to-host
+            set ipv6-daddr-err trap-to-host
+            set ipv6-optralert trap-to-host
+            set ipv6-optjumbo trap-to-host
+            set ipv6-opttunnel trap-to-host
+            set ipv6-opthomeaddr trap-to-host
+            set ipv6-optnsap trap-to-host
+            set ipv6-optendpid trap-to-host
+            set ipv6-optinvld trap-to-host
+        end
+    next
+end
+config system vdom-link
+end
+config wireless-controller inter-controller
+    set inter-controller-mode disable
+    set l3-roaming disable
+    set inter-controller-key ENC c2YudAW2joA6/aNwBD6TjGgjUM4mbh6wu85QXoe6eJIdtIFAbYUgVo1hSRci7ATU47OCPCOd9MNEouar3AxIpB0loa5wjCivui0Gf+GzEB3SWOuzLQxCaJXRUUOKyBx/7Lw562mp9EyGn4GaSwoGR8shIqt+ckddNedA5yeMlVgX7P12CyShS9Cpj8RYobf
+oZasEKFlmMjY3dkVA
+    set inter-controller-pri primary
+    set fast-failover-max 10
+    set fast-failover-wait 10
+end
+config wireless-controller global
+    set name ''
+    set location ''
+    set acd-process-count 0
+    set wpad-process-count 0
+    set image-download enable
+    set rolling-wtp-upgrade disable
+    set rolling-wtp-upgrade-threshold "-80"
+    set max-retransmit 3
+    set control-message-offload ebp-frame aeroscout-tag ap-list sta-list sta-cap-list stats aeroscout-mu sta-health spectral-analysis
+    set data-ethernet-II enable
+    set link-aggregation disable
+    set mesh-eth-type 8755
+    set fiapp-eth-type 5252
+    set discovery-mc-addr 224.0.1.140
+    set max-clients 0
+    set rogue-scan-mac-adjacency 7
+    set ipsec-base-ip 169.254.0.1
+    set wtp-share disable
+    set tunnel-mode compatible
+    set nac-interval 120
+    set ap-log-server disable
+    set max-sta-cap 0
+    set max-sta-cap-wtp 8
+    set max-rogue-ap 0
+    set max-rogue-ap-wtp 16
+    set max-rogue-sta 0
+    set max-ble-device 0
+end
+config system switch-interface
+end
+config system interface
+    edit "wan1"
+        set vdom "root"
+        set vrf 0
+        set fortilink disable
+        set mode pppoe
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set allowaccess ping
+        set fail-detect disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type physical
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set trunk disable
+        set description ''
+        set alias "ISP_WIND"
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification disable
+        set lldp-reception vdom
+        set lldp-transmission vdom
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role wan
+        set snmp-index 1
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set ipunnumbered 0.0.0.0
+        set username "1240290"
+        set pppoe-egress-cos cos0
+        set password ENC iDg0weW/Xfl5LieXCEf4CnWq6MukKt8689l+Dm2g3EQR0Ru0oXY/TCqBo8KvRPE6pyj5MLTv4RgOfRGhLQ+W+1i7DfAd5pwk9ukACwCup/2j117iWnrDh12FUolZJUwho/Z6rYNO8U3xs1sPjjbTtuRQTzm6Pvoizl4CtBM+9G5uq3+VMev0b/tohI+07qXTkG6faVl
+mMjY3dkVA
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set service-name ''
+        set ac-name ''
+        set lcp-echo-interval 5
+        set lcp-max-echo-fails 3
+        set defaultgw enable
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set auth-type auto
+        set pptp-client disable
+        set speed auto
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set mtu-override disable
+     next
+    edit "wan2"
+        set vdom "root"
+        set vrf 0
+        set fortilink disable
+        set mode dhcp
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-broadcast-flag enable
+        set dhcp-relay-service disable
+        set dhcp-classless-route-addition disable
+        set allowaccess ping
+        set fail-detect disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type physical
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set trunk disable
+        set description ''
+        set alias "ISP_CLARO"
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification disable
+        set lldp-reception vdom
+        set lldp-transmission vdom
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role wan
+        set snmp-index 2
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set defaultgw enable
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set pptp-client disable
+        set speed auto
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set mtu-override disable
+    next
+    edit "dmz"
+        set vdom "root"
+         set vrf 0
+        set fortilink disable
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 192.168.1.99 255.255.255.0
+        set allowaccess ping https ssh snmp http fgfm
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status down
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type physical
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification disable
+        set lldp-reception vdom
+        set lldp-transmission vdom
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role dmz
+        set snmp-index 3
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set speed auto
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set mtu-override disable
+    next
+    edit "internal1"
+        set vdom "root"
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-classless-route-addition disable
+        set status up
+        set type physical
+        set src-check enable
+        set trunk disable
+        set description ''
+        set alias ''
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 4
+        set preserve-session-route disable
+        set ap-discover enable
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set speed auto
+    next
+    edit "internal2"
+        set vdom "root"
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-classless-route-addition disable
+        set status up
+        set type physical
+        set src-check enable
+        set trunk disable
+        set description ''
+        set alias ''
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role lan
+        set snmp-index 5
+        set preserve-session-route disable
+        set ap-discover enable
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set speed auto
+     next
+    edit "internal3"
+        set vdom "root"
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-classless-route-addition disable
+        set status up
+        set type physical
+        set src-check enable
+        set trunk disable
+        set description ''
+        set alias ''
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 6
+        set preserve-session-route disable
+        set ap-discover enable
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set speed auto
+    next
+    edit "internal4"
+        set vdom "root"
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-classless-route-addition disable
+        set status up
+        set type physical
+        set src-check enable
+        set trunk disable
+        set description ''
+        set alias ''
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 7
+        set preserve-session-route disable
+        set ap-discover enable
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set speed auto
+    next
+    edit "internal5"
+        set vdom "root"
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-classless-route-addition disable
+        set status up
+        set type physical
+        set src-check enable
+        set trunk disable
+        set description ''
+        set alias ''
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 8
+        set preserve-session-route disable
+        set ap-discover enable
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set speed auto
+    next
+    edit "a"
+        set vdom "root"
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-classless-route-addition disable
+        set status up
+        set type physical
+        set src-check enable
+        set trunk disable
+        set description ''
+        set alias ''
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 9
+        set preserve-session-route disable
+        set ap-discover enable
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set speed auto
+    next
+    edit "b"
+        set vdom "root"
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-classless-route-addition disable
+        set status up
+        set type physical
+        set src-check enable
+        set trunk disable
+        set description ''
+        set alias ''
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 10
+        set preserve-session-route disable
+        set ap-discover enable
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set speed auto
+    next
+    edit "modem"
+        set vdom "root"
+        set vrf 0
+        set fortilink disable
+        set mode pppoe
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        unset allowaccess
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set vlanforward disable
+        set stpforward disable
+         set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status down
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type physical
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set trunk disable
+        set description ''
+        set alias ''
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification disable
+        set lldp-reception vdom
+        set lldp-transmission vdom
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role undefined
+        set snmp-index 11
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set ipunnumbered 0.0.0.0
+        set username ''
+        set pppoe-egress-cos cos0
+        set password ENC wpp0JX51EVuVJdbNxcV6W449UKiofWWIL38JYQI9Bd3OILaSM9tI+XJBEBujD96nK331GkYUHiHBpbwCh10mIWawpSPhWAKZis0YGhglv2vNnMAusnrFWC/ifBfRcCtlu4l67CUBRvkQwvZm0ym+s8bUcW9gHqSbPTj/5HoUHX4rc5XSkKlIm8D+P120rMcCYGoMzVl
+mMjY3dkVA
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set service-name ''
+        set ac-name ''
+        set lcp-echo-interval 5
+        set lcp-max-echo-fails 3
+        set defaultgw enable
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set auth-type auto
+        set pptp-client disable
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set mtu-override disable
+    next
+    edit "naf.root"
+        set vdom "root"
+        set vrf 0
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type tunnel
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check disable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 12
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set eap-supplicant disable
+        config ipv6
+            set nd-mode basic
+            set ip6-address ::/0
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set ip6-prefix-mode dhcp6
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+        end
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+    next
+    edit "l2t.root"
+        set vdom "root"
+        set vrf 0
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        unset allowaccess
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type tunnel
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set trunk disable
+        set remote-ip 0.0.0.0 0.0.0.0
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 13
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+    next
+    edit "ssl.root"
+        set vdom "root"
+        set vrf 0
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        unset allowaccess
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set reachable-time 30000
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type tunnel
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set trunk disable
+        set description ''
+        set alias "SSL VPN interface"
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 14
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+    next
+    edit "fortilink"
+        set vdom "root"
+        set vrf 0
+        set fortilink disable
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        set allowaccess ping fabric
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status down
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type aggregate
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set trunk disable
+        set member "internal4" "internal5" "a" "b" "internal3"
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification disable
+        set lldp-reception enable
+        set lldp-transmission enable
+        set lldp-network-policy ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role undefined
+        set snmp-index 16
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set mtu-override disable
+        set lacp-mode active
+        set lacp-ha-secondary enable
+        set system-id-type auto
+        set lacp-speed slow
+        set min-links 1
+        set min-links-down operational
+        set algorithm L4
+        set link-up-delay 50
+        set aggregate-type physical
+    next
+    edit "AGGRE_CUSTOMER"
+         set vdom "root"
+        set vrf 0
+        set fortilink disable
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        unset allowaccess
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type aggregate
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set trunk disable
+        set member "internal1" "internal2"
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification disable
+        set lldp-reception vdom
+        set lldp-transmission enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 15
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-mgmt-vlan 4094
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set swc-first-create 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set mtu-override disable
+        set lacp-mode active
+        set lacp-ha-secondary enable
+        set system-id-type auto
+        set lacp-speed slow
+        set min-links 1
+        set min-links-down operational
+        set algorithm L4
+        set link-up-delay 50
+        set aggregate-type physical
+     next
+    edit "SVR"
+        set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 172.16.18.1 255.255.255.224
+        set allowaccess ping https fgfm speed-test
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 17
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+         set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 10
+    next
+    edit "VOIP"
+         set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 172.16.18.33 255.255.255.224
+        unset allowaccess
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 18
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 11
+    next
+    edit "RRHH"
+        set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service enable
+        set ip 172.16.18.65 255.255.255.224
+        unset allowaccess
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+         set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 19
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-ip "172.16.18.7"
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-relay-link-selection 0.0.0.0
+        set dhcp-relay-request-all-server disable
+        set dhcp-relay-allow-no-end-option disable
+        set dhcp-relay-type regular
+        set dhcp-smart-relay disable
+        set dhcp-relay-agent-option enable
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 12
+    next
+    edit "CONT"
+         set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service enable
+        set ip 172.16.18.97 255.255.255.224
+        unset allowaccess
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 20
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-ip "172.16.18.7"
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-relay-link-selection 0.0.0.0
+        set dhcp-relay-request-all-server disable
+        set dhcp-relay-allow-no-end-option disable
+        set dhcp-relay-type regular
+        set dhcp-smart-relay disable
+        set dhcp-relay-agent-option enable
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 13
+     next
+    edit "CYM"
+        set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service enable
+        set ip 172.16.18.129 255.255.255.224
+        unset allowaccess
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 21
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+         set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-ip "172.16.18.7"
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-relay-link-selection 0.0.0.0
+        set dhcp-relay-request-all-server disable
+        set dhcp-relay-allow-no-end-option disable
+        set dhcp-relay-type regular
+        set dhcp-smart-relay disable
+        set dhcp-relay-agent-option enable
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 14
+    next
+     edit "PRN"
+        set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 172.16.18.161 255.255.255.224
+        unset allowaccess
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 22
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 15
+    next
+    edit "RBM"
+        set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 172.16.18.193 255.255.255.224
+        unset allowaccess
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 23
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 16
+     next
+    edit "ALM"
+        set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service enable
+        set ip 172.16.18.225 255.255.255.224
+        unset allowaccess
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 24
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-ip "172.16.18.7"
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-relay-link-selection 0.0.0.0
+        set dhcp-relay-request-all-server disable
+        set dhcp-relay-allow-no-end-option disable
+        set dhcp-relay-type regular
+        set dhcp-smart-relay disable
+        set dhcp-relay-agent-option enable
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 17
+     next
+    edit "WADM"
+        set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service enable
+        set ip 172.16.19.1 255.255.255.128
+        unset allowaccess
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 25
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-ip "172.16.18.7"
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-relay-link-selection 0.0.0.0
+        set dhcp-relay-request-all-server disable
+        set dhcp-relay-allow-no-end-option disable
+        set dhcp-relay-type regular
+        set dhcp-smart-relay disable
+        set dhcp-relay-agent-option enable
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 18
+    next
+    edit "WGST"
+        set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 172.16.19.129 255.255.255.128
+        unset allowaccess
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 26
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 19
+     next
+    edit "CAM"
+        set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 172.16.20.1 255.255.255.0
+        unset allowaccess
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 27
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam inherit-global
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 20
+     next
+    edit "LAN_old"
+        set vdom "root"
+        set vrf 0
+        set mode static
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service enable
+        set ip 172.15.3.1 255.255.255.0
+        set allowaccess ping https fgfm speed-test
+        set fail-detect disable
+        set pptp-client disable
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set l2forward disable
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set vlanforward disable
+        set stpforward disable
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set subst disable
+        set substitute-dst-mac 00:00:00:00:00:00
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type vlan
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set vlan-protocol 8021q
+        set trunk disable
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set device-identification enable
+        set device-user-identification enable
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set vrrp-virtual-mac disable
+        set role lan
+        set snmp-index 29
+        set secondary-IP disable
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set ip-managed-by-fortiipam disable
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set switch-controller-feature none
+        set switch-controller-offload disable
+        set switch-controller-offload-gw disable
+        set color 0
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set vrrp-virtual-mac6 disable
+            set vrip6_link_local ::
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set priority 1
+        set dhcp-relay-ip "172.16.18.7"
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dhcp-relay-link-selection 0.0.0.0
+        set dhcp-relay-request-all-server disable
+        set dhcp-relay-allow-no-end-option disable
+        set dhcp-relay-type regular
+        set dhcp-smart-relay disable
+        set dhcp-relay-agent-option enable
+        set dhcp-client-identifier ''
+        set dhcp-renew-time 0
+        set idle-timeout 0
+        set disc-retry-timeout 1
+        set padt-retry-timeout 1
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set drop-overlapped-fragment disable
+        set drop-fragment disable
+        set interface "AGGRE_CUSTOMER"
+        set mtu-override disable
+        set vlanid 100
+     next
+    edit "ANTILLANA1"
+        set vdom "root"
+        set vrf 0
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        unset allowaccess
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type tunnel
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set trunk disable
+        set remote-ip 0.0.0.0 0.0.0.0
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 30
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set interface "wan2"
+        set mtu-override disable
+    next
+    edit "ANTILLANA2"
+        set vdom "root"
+        set vrf 0
+        set distance 5
+        set priority 1
+        set dhcp-relay-interface-select-method auto
+        set dhcp-relay-service disable
+        set ip 0.0.0.0 0.0.0.0
+        unset allowaccess
+        set arpforward enable
+        set broadcast-forward disable
+        set bfd global
+        set icmp-send-redirect enable
+        set icmp-accept-redirect enable
+        set reachable-time 30000
+        set ips-sniffer-mode disable
+        set ident-accept disable
+        set ipmac disable
+        set status up
+        set netbios-forward disable
+        set wins-ip 0.0.0.0
+        set type tunnel
+        set netflow-sampler disable
+        set sflow-sampler disable
+        set src-check enable
+        set sample-rate 2000
+        set polling-interval 20
+        set sample-direction both
+        set tcp-mss 0
+        set inbandwidth 0
+        set outbandwidth 0
+        set egress-shaping-profile ''
+        set ingress-shaping-profile ''
+        set weight 0
+        set external disable
+        set trunk disable
+        set remote-ip 0.0.0.0 0.0.0.0
+        set description ''
+        set alias ''
+        set l2tp-client disable
+        set security-mode none
+        set ike-saml-server ''
+        set estimated-upstream-bandwidth 0
+        set estimated-downstream-bandwidth 0
+        set measured-upstream-bandwidth 0
+        set measured-downstream-bandwidth 0
+        set bandwidth-measure-time 0
+        set monitor-bandwidth disable
+        set role undefined
+        set snmp-index 31
+        set preserve-session-route disable
+        set auto-auth-extension-device disable
+        set ap-discover enable
+        set switch-controller-igmp-snooping-proxy disable
+        set switch-controller-igmp-snooping-fast-leave disable
+        set eap-supplicant disable
+        config ipv6
+            set ip6-mode static
+            set nd-mode basic
+            set ip6-address ::/0
+            unset ip6-allowaccess
+            set icmp6-send-redirect enable
+            set ra-send-mtu enable
+            set ip6-reachable-time 0
+            set ip6-retrans-time 0
+            set ip6-hop-limit 0
+            set dhcp6-prefix-delegation disable
+            set dhcp6-information-request disable
+            set ip6-send-adv disable
+            set autoconf disable
+            set dhcp6-relay-service disable
+        end
+        set dhcp-relay-source-ip 0.0.0.0
+        set dhcp-relay-circuit-id ''
+        set dns-server-override enable
+        set dns-server-protocol cleartext
+        set wccp disable
+        set interface "wan1"
+        set mtu-override disable
+     next
+end
+config system physical-switch
+    edit "sw0"
+        set age-enable disable
+        set age-val 0
+    next
+end
+config system virtual-switch
+end
+config system password-policy
+    set status disable
+end
+config system password-policy-guest-admin
+    set status disable
+end
+config system sms-server
+end
+config system custom-language
+    edit "en"
+        set filename "en"
+        set comments ''
+    next
+    edit "fr"
+        set filename "fr"
+        set comments ''
+    next
+    edit "sp"
+        set filename "sp"
+        set comments ''
+    next
+    edit "pg"
+        set filename "pg"
+        set comments ''
+    next
+    edit "x-sjis"
+        set filename "x-sjis"
+        set comments ''
+    next
+    edit "big5"
+        set filename "big5"
+        set comments ''
+    next
+    edit "GB2312"
+        set filename "GB2312"
+        set comments ''
+    next
+    edit "euc-kr"
+        set filename "euc-kr"
+        set comments ''
+    next
+end
+config system admin
+    edit "admin"
+        set remote-auth disable
+        set peer-auth disable
+        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost2 0.0.0.0 0.0.0.0
+        set trusthost3 0.0.0.0 0.0.0.0
+        set trusthost4 0.0.0.0 0.0.0.0
+        set trusthost5 0.0.0.0 0.0.0.0
+        set trusthost6 0.0.0.0 0.0.0.0
+        set trusthost7 0.0.0.0 0.0.0.0
+        set trusthost8 0.0.0.0 0.0.0.0
+        set trusthost9 0.0.0.0 0.0.0.0
+        set trusthost10 0.0.0.0 0.0.0.0
+        set ip6-trusthost1 ::/0
+        set ip6-trusthost2 ::/0
+        set ip6-trusthost3 ::/0
+        set ip6-trusthost4 ::/0
+        set ip6-trusthost5 ::/0
+        set ip6-trusthost6 ::/0
+        set ip6-trusthost7 ::/0
+        set ip6-trusthost8 ::/0
+        set ip6-trusthost9 ::/0
+        set ip6-trusthost10 ::/0
+        set accprofile "super_admin"
+        set comments ''
+        set vdom "root"
+        unset ssh-public-key1
+        unset ssh-public-key2
+        unset ssh-public-key3
+        set ssh-certificate ''
+        set schedule ''
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set guest-auth disable
+        set password ENC SH2r9OhgThCxQ2Z47X2Xm+rV6hcdLwxOXVRtH+jstUuuUfBIvlq1x5Kg+fVmjA=
+        set allow-remove-admin-session enable
+    next
+    edit "Forti-ADM"
+        set remote-auth enable
+        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost2 0.0.0.0 0.0.0.0
+        set trusthost3 0.0.0.0 0.0.0.0
+        set trusthost4 0.0.0.0 0.0.0.0
+        set trusthost5 0.0.0.0 0.0.0.0
+        set trusthost6 0.0.0.0 0.0.0.0
+        set trusthost7 0.0.0.0 0.0.0.0
+        set trusthost8 0.0.0.0 0.0.0.0
+        set trusthost9 0.0.0.0 0.0.0.0
+        set trusthost10 0.0.0.0 0.0.0.0
+        set ip6-trusthost1 ::/0
+        set ip6-trusthost2 ::/0
+        set ip6-trusthost3 ::/0
+        set ip6-trusthost4 ::/0
+        set ip6-trusthost5 ::/0
+        set ip6-trusthost6 ::/0
+        set ip6-trusthost7 ::/0
+        set ip6-trusthost8 ::/0
+        set ip6-trusthost9 ::/0
+        set ip6-trusthost10 ::/0
+        set accprofile "super_admin"
+        set comments ''
+        set vdom "root"
+        set schedule ''
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set guest-auth disable
+        set wildcard enable
+        set remote-group "Forti-ADM"
+        set allow-remove-admin-session enable
+        set accprofile-override disable
+        set vdom-override disable
+    next
+    edit "Forti-QUERY"
+        set remote-auth enable
+        set trusthost1 0.0.0.0 0.0.0.0
+        set trusthost2 0.0.0.0 0.0.0.0
+        set trusthost3 0.0.0.0 0.0.0.0
+        set trusthost4 0.0.0.0 0.0.0.0
+        set trusthost5 0.0.0.0 0.0.0.0
+        set trusthost6 0.0.0.0 0.0.0.0
+        set trusthost7 0.0.0.0 0.0.0.0
+        set trusthost8 0.0.0.0 0.0.0.0
+        set trusthost9 0.0.0.0 0.0.0.0
+        set trusthost10 0.0.0.0 0.0.0.0
+        set ip6-trusthost1 ::/0
+        set ip6-trusthost2 ::/0
+        set ip6-trusthost3 ::/0
+        set ip6-trusthost4 ::/0
+        set ip6-trusthost5 ::/0
+        set ip6-trusthost6 ::/0
+        set ip6-trusthost7 ::/0
+        set ip6-trusthost8 ::/0
+        set ip6-trusthost9 ::/0
+        set ip6-trusthost10 ::/0
+        set accprofile "super_admin_readonly"
+        set comments ''
+        set vdom "root"
+        set schedule ''
+        set two-factor disable
+        set email-to ''
+        set sms-server fortiguard
+        set sms-phone ''
+        set guest-auth disable
+        set wildcard enable
+        set remote-group "Forti-QUERY"
+        set accprofile-override disable
+        set vdom-override disable
+    next
+end
+config system api-user
+end
+config system sso-admin
+end
+config system sso-forticloud-admin
+end
+config system sso-fortigate-cloud-admin
+end
+config system npu-setting prp
+end
+config system fsso-polling
+    set status enable
+    set listening-port 8000
+    set authentication disable
+end
+config system ha
+    set group-id 0
+    set group-name ''
+    set mode standalone
+    set sync-packet-balance disable
+    set password ENC FpRsi2uIU242PjsJk+7LRxsGWpOUHVQpVXd49/zZmXMOK+2yliof4nOlAO76DzEzd4VsHPJuRlhdc/YU0vpZZMGQhj3XVTYQEZYS77dQNKVpuL0YVyIR1ZTzP1xYbfo2ws/vdbak2r9eXXDXoyd8i4hyJJzdygS9QsTy/eoVBwAu4cqM41TKN6wCmyqDlDgSx8t2WllmMjY
+3dkVA
+    unset hbdev
+    set route-ttl 10
+    set route-wait 0
+    set route-hold 10
+    set multicast-ttl 600
+    set evpn-ttl 60
+    set sync-config enable
+    set encryption disable
+    set authentication disable
+    set hb-interval 2
+    set hb-interval-in-milliseconds 100ms
+    set hb-lost-threshold 6
+    set hello-holddown 20
+    set gratuitous-arps enable
+    set arps 5
+    set arps-interval 8
+    set session-pickup disable
+    set link-failed-signal disable
+    set upgrade-mode uninterruptible
+    set uninterruptible-primary-wait 30
+    set ha-eth-type "8890"
+    set hc-eth-type "8891"
+    set l2ep-eth-type "8893"
+    set ha-uptime-diff-margin 300
+    set standalone-config-sync disable
+    set override disable
+    set priority 128
+    unset monitor
+    unset pingserver-monitor-interface
+    set failover-hold-time 0
+end
+config system ha-monitor
+    set monitor-vlan disable
+end
+config system storage
+end
+config system dns
+    set primary 96.45.45.45
+    set secondary 96.45.46.46
+    set protocol dot
+    set ssl-certificate "Fortinet_Factory"
+    set server-hostname "globalsdns.fortinet.net"
+    set ip6-primary ::
+    set ip6-secondary ::
+    set timeout 5
+    set retry 2
+    set dns-cache-limit 5000
+    set dns-cache-ttl 1800
+    set cache-notfound-responses disable
+    set source-ip 0.0.0.0
+    set interface-select-method auto
+    set server-select-method least-rtt
+    set alt-primary 0.0.0.0
+    set alt-secondary 0.0.0.0
+    set log disable
+    set fqdn-cache-ttl 0
+    set fqdn-max-refresh 3600
+    set fqdn-min-refresh 60
+end
+config system ddns
+end
+config system sflow
+end
+config system netflow
+    set active-flow-timeout 1800
+    set inactive-flow-timeout 15
+    set template-tx-timeout 1800
+    set template-tx-counter 20
+end
+config system replacemsg-image
+    edit "logo_fnet"
+        set image-type png
+        set image-base64 ''
+    next
+    edit "logo_fguard_wf"
+        set image-type png
+        set image-base64 ''
+    next
+    edit "logo_v3_fguard_app"
+        set image-type png
+        set image-base64 ''
+    next
+end
+config system replacemsg mail "partial"
+    set buffer "Fragmented emails are blocked."
+    set header 8bit
+    set format text
+end
+config system replacemsg http "url-block"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>The URL you requested has been blocked</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>FortiGuard Intrusion Prevention - Access Blocked</h1>
+    <h3>Web Page Blocked</h3>
+    <p>The page you have requested has been blocked because the URL is banned.</p>
+    <table><tbody>
+        <tr>
+            <td>URL</td>
+            <td>%%PROTOCOL%%://%%URL%%</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>%%IPS_DESC%%</td>
+        </tr>
+        <tr>
+            <td>URL Source</td>
+            <td>%%URL_SOURCE%%</td>
+        </tr>
+    </tbody></table>
+    <p>%%OVERRIDE%%</p>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg http "urlfilter-err"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>Web Page Blocked</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>Web Page Blocked</h1>
+    <p>%%URLFILTER_ERROR%%</p>
+    <table><tbody>
+        <tr>
+            <td>Web Filter Service Error</td>
+            <td>%%URLFILTER_ERROR_DETAIL%%</td>
+        </tr>
+    </tbody></table>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg http "infcache-block"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>High Security Alert</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>High Security Alert</h1>
+    <p>The URL you requested was previously found to be infected.</p>
+    <table><tbody>
+        <tr>
+            <td>URL</td>
+            <td>%%PROTOCOL%%://%%URL%%</td>
+        </tr>
+    </tbody></table>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg http "http-contenttypeblock"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>Attention</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>Attention</h1>
+    <p>Content type not permitted.</p>
+    <table><tbody>
+        <tr>
+            <td>URL</td>
+            <td>%%PROTOCOL%%://%%URL%%</td>
+        </tr>
+    </tbody></table>
+    <p>%%OVERRIDE%%</p>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg http "https-invalid-cert-block"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>Invalid Connection</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>%%FORTIGUARD_WF%%</h1>
+    <h3>This Connection is Invalid. %%CERT_INVL_REASON%%</h3>
+    <p>A secure connection to %%HOSTNAME%% cannot be established.</p>
+    <p>When you try to connect securely, sites will present trusted identification to prove that you are going to the right place. However, this site\'s identity can\'t be verified.</p>
+    <table><tbody>
+        <tr>
+            <td>Site</td>
+            <td>%%HOSTNAME%%</td>
+        </tr>
+        <tr>
+            <td>Certificate CN</td>
+            <td>%%CN%%</td>
+        </tr>
+        <tr>
+            <td>Certificate Authority</td>
+            <td>%%AUTHORITY%%</td>
+        </tr>
+        <tr>
+            <td>Certificate Validity</td>
+            <td>
+                <div>Not Before: %%START_VALID%%</div>
+                <div>Not After: %%END_VALID%%</div>
+            </td>
+        </tr>
+        <tr>
+            <td>Certificate Chain</td>
+            <td><pre>%%CERT_CHAIN%%</pre></td>
+        </tr>
+    </tbody></table>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg http "https-untrusted-cert-block"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>Untrusted Connection</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>%%FORTIGUARD_WF%%</h1>
+    <h3>This Connection is Untrusted</h3>
+    <p>A secure connection to %%HOSTNAME%% cannot be established.</p>
+    <p>When you try to connect securely, sites will present trusted identification to prove that you are going to the right place. The identity for this site can\'t be verified.</p>
+    <table><tbody>
+        <tr>
+            <td>Site</td>
+            <td>%%HOSTNAME%%</td>
+        </tr>
+        <tr>
+            <td>Certificate CN</td>
+            <td>%%CN%%</td>
+        </tr>
+        <tr>
+            <td>Certificate Authority</td>
+            <td>%%AUTHORITY%%</td>
+        </tr>
+        <tr>
+            <td>Certificate Validity</td>
+            <td>
+                <div>Not Before: %%START_VALID%%</div>
+                <div>Not After: %%END_VALID%%</div>
+            </td>
+        </tr>
+        <tr>
+            <td>Certificate Chain</td>
+            <td><pre>%%CERT_CHAIN%%</pre></td>
+        </tr>
+    </tbody></table>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg http "https-blocklisted-cert-block"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>Blocked Connection</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>%%FORTIGUARD_WF%%</h1>
+    <h3>This Connection is Blocked</h3>
+    <p>A secure connection to %%HOSTNAME%% cannot be established.</p>
+    <p>When you try to connect securely, sites will present identification to prove that you are going to the right place. The identity for this site is blocked.</p>
+    <table><tbody>
+        <tr>
+            <td>Site</td>
+            <td>%%HOSTNAME%%</td>
+        </tr>
+        <tr>
+            <td>Certificate CN</td>
+            <td>%%CN%%</td>
+        </tr>
+        <tr>
+            <td>Certificate Authority</td>
+            <td>%%AUTHORITY%%</td>
+        </tr>
+        <tr>
+            <td>Certificate Validity</td>
+            <td>
+                <div>Not Before: %%START_VALID%%</div>
+                <div>Not After: %%END_VALID%%</div>
+            </td>
+        </tr>
+        <tr>
+            <td>Certificate Chain</td>
+            <td><pre>%%CERT_CHAIN%%</pre></td>
+        </tr>
+    </tbody></table>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg http "https-ech-block"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>Invalid Connection</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>%%FORTIGUARD_WF%%</h1>
+    <p>The Encrypted ClientHello has been blocked for %%SNI%%</p>
+    <table><tbody>
+        <tr>
+            <td>SNI</td>
+            <td>%%SNI%%</td>
+        </tr>
+        <tr>
+            <td>Site</td>
+            <td>%%HOSTNAME%%</td>
+        </tr>
+    </tbody></table>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg http "switching-protocols-block"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>The request has been blocked</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>The request has been blocked</h1>
+    <p>The protocol switching request has been blocked for %%PROTOCOL%%://%%URL%%</p>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg http "http-antiphish-block"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>Webfilter Violation</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>Webfilter Violation</h1>
+    <p>Your attempt to submit internal credentials to an external site has been blocked by your system administrator.</p>
+    <table><tbody>
+        <tr>
+            <td>URL</td>
+            <td>%%PROTOCOL%%://%%URL%%</td>
+        </tr>
+    </tbody></table>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg http "videofilter-block"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>The URL you requested has been blocked</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>Attention</h1>
+    <h3>Video Access Blocked</h3>
+    <p>The page you have requested has been blocked because the requested video resource is not allowed.</p>
+    <table><tbody>
+        <tr>
+            <td>URL</td>
+            <td>%%PROTOCOL%%://%%URL%%</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>%%VIDEOFILTER_DESC%%</td>
+        </tr>
+    </tbody></table>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg webproxy "deny"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+                color: #262626;
+                vertical-align: baseline;
+                margin: .2em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #a9a9a9;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 2px .5em;
+                appearance: none;
+                border-radius: 0;
+            }
+            input:focus {
+                border-color: #646464;
+                box-shadow: 0 0 1px 0 #a2a2a2;
+                outline: 0;
+            }
+            button {
+                padding: .5em 1em;
+                border: 1px solid;
+                border-radius: 3px;
+                min-width: 6em;
+                font-weight: 400;
+                font-size: .8em;
+                cursor: pointer;
+            }
+            button.primary {
+                color: #fff;
+                background-color: rgb(47, 113, 178);
+                border-color: rgb(34, 103, 173);
+            }
+            .message-container {
+                height: 500px;
+                width: 500px;
+                padding: 0;
+                margin: 10px;
+            }
+            .logo {
+                background: url(%%IMAGE:logo_v3_fguard_app%%) no-repeat left center;
+                height: 267px;
+                object-fit: contain;
+            }
+            table {
+                background-color: #fff;
+                border-spacing: 0;
+                margin: 1em;
+            }
+            table > tbody > tr > td:first-of-type:not([colspan]) {
+                white-space: nowrap;
+                color: rgba(0,0,0,.5);
+            }
+            table > tbody > tr > td:first-of-type {
+                vertical-align: top;
+            }
+            table > tbody > tr > td {
+                padding: .3em .3em;
+            }
+            .field {
+                display: table-row;
+            }
+            .field > :first-child {
+                display: table-cell;
+                width: 20%;
+            }
+            .field.single > :first-child {
+                display: inline;
+            }
+            .field > :not(:first-child) {
+                width: auto;
+                max-width: 100%;
+                display: inline-flex;
+                align-items: baseline;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin: .3em;
+            }
+            .field > :not(:first-child) > input {
+                width: 230px;
+            }
+            .form-footer {
+                display: inline-flex;
+                justify-content: flex-start;
+            }
+            .form-footer > * {
+                margin: 1em;
+            }
+            .text-scrollable {
+                overflow: auto;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 5px;
+                font-size: 1em;
+            }
+            .text-centered {
+                text-align: center;
+            }
+            .text-container {
+                margin: 1em 1.5em;
+            }
+            .flex-container {
+                display: flex;
+            }
+            .flex-container.column {
+                flex-direction: column;
+            }
+        </style>
+        <title>Access Denied</title>
+    </head>
+    <body><div class=\"message-container\">
+    <div class=\"logo\"></div>
+    <h1>Access Denied</h1>
+    <p>The page you requested has been blocked by a firewall policy restriction.</p>
+</div></body>
+</html>
+"
+    set header http
+    set format html
+end
+config system replacemsg webproxy "user-limit"
+    set buffer "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8; IE=EDGE\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <style type=\"text/css\">
+            body {
+                height: 100%;
+                font-family: Helvetica, Arial, sans-serif;
+                color: #6a6a6a;
+
+LN-TM-ORBIS-2482330611DO #

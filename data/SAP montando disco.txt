@@ -1,0 +1,62 @@
+#creamos el archivo que contiene las credenciales
+/etc/smbcredentials/ubackup.cred
+username=ubackup
+password=*****************
+domain=laantillana.local
+uid=acqadm
+gid=sapsys
+
+
+
+# montar la carpeta
+sudo vim /etc/fstab
+
+#a dentro le ponemos lo datos para montarla
+//172.16.4.41/Shared-Folders/Backup/SAP/ /hana/backup  cifs  credentials=/etc/smbcredentials/ubackup.cred,vers=3.0,uid=acqadm,gid=sapsys,file_mode=0777,dir_mode=0777,nofail,iocharset=utf8  0  0
+
+
+#montamos el disco que implementamos en el fstab
+#sudo mount -t cifs -o credentials=/etc/smbcredentials/ubackup.cred,vers=3.0,domain=laantillana.local,uid=acqadm,gid=sapsys //172.16.4.41/Shared-Folders/Backup/SAP/HanaQA /hana/back                               
+
+# hay que montar la carpeta con el usuario: hdbadm para que se pueda escribir la base de datos
+sudo mount -t cifs -o credentials=/etc/smbcredentials/ubackup.cred,vers=3.0,domain=laantillana.local,uid=hdbadm,gid=sapsys //172.16.4.41/Shared-Folders/Backup/SAP/HanaQA /hana/backup
+
+
+cd /usr/sap/HDB/HDB02/backup/data/
+
+#linkeamos la carpeta en SYSTEMDB
+ln -s /hana/backup/SYSTEMDB/ data/
+
+#linkeamos la carpeta en DB_HDB
+ln -s /hana/backup/DB_HDB/ data/
+
+
+
+#es necesario ya que esta carpeta fue creada por el usuario root y los permisos el sistema se lo ha heredado al uusario root cambiarlos para que cuando valla a hacer el respaldo pueda escribir
+SAPQA:/usr/sap/HDB/HDB02/backup/data # l
+
+SAPQA:/usr/sap/HDB/HDB02/backup/data # sudo chown -R acqadm:sapsys DB_POSIBILIADB
+SAPQA:/usr/sap/HDB/HDB02/backup/data # sudo chown -R acqadm:sapsys SYSTEMDB
+SAPQA:/usr/sap/HDB/HDB02/backup/data # sudo chown -R acqadm:sapsys DB_HDB
+
+
+sudo chown -R hdbadm:sapsys DB_POSIBILIADB
+sudo chown -R hdbadm:sapsys SYSTEMDB
+sudo chown -R hdbadm:sapsys DB_HDB
+
+
+#ahora en Hana Studio creamos el backup
+
+1. Clic derecho sobre la instancia y presionamos en 
+	- Backup and Recovery > Back up System Database...
+	
+entonces con el siguiente destino que fue la ruta que linkeamos
+/usr/sap/HDB/HDB02/backup/data/SYSTEMDB
+
+y con el nombre del prefijo.
+COMPLETE_SYSTEMDB_BACKUP
+
+# Este es el backup del sistema que es el de la configuracion
+
+
+

@@ -1,0 +1,60 @@
+negotiation
+
+LN-TM-ORBIS-2482330611DO # diagnose vpn tunnel list
+list all ipsec tunnel in vd 0
+------------------------------------------------------
+name=ANTILLANA1 ver=1 serial=a 10.1.0.3:4500->190.166.104.66:4500 nexthop=10.1.0.1 tun_id=190.166.104.66 tun_id6=::190.166.104.66 status=up dst_mtu=1500 weight=1
+bound_if=6 real_if=6 lgwy=static/1 tun=intf mode=auto/1 encap=none/552 options[0228]=npu frag-rfc  run_state=0 role=primary accept_traffic=1 overlay_id=0
+
+proxyid_num=2 child_num=0 refcnt=6 ilast=0 olast=0 ad=/0
+stat: rxp=364901 txp=812542 rxb=297861122 txb=55714745
+dpd: mode=on-demand on=1 status=ok idle=20000ms retry=3 count=0 seqno=2013
+natt: mode=keepalive draft=32 interval=10 remote_port=4500
+fec: egress=0 ingress=0
+proxyid=AC proto=0 sa=1 ref=2 serial=3 auto-negotiate
+  src: 0:172.15.3.0-172.15.3.255:0
+  dst: 0:172.16.0.0-172.16.15.255:0
+  SA:  ref=6 options=18227 type=00 soft=0 mtu=1422 expire=15116/0B replaywin=2048
+       seqno=39ad esn=0 replaywin_lastseq=00005263 qat=0 rekey=0 hash_search_len=1
+  life: type=01 bytes=0/0 timeout=42898/43200
+  dec: spi=9328fb6b esp=aes key=16 fda7378cb6c6f49d73b55d5334efcae5
+       ah=sha256 key=32 fa58dc73cdcbeee923fee93aaf7d0f577eda2de32a33b27370941faee5e44cad
+  enc: spi=c0bb47b1 esp=aes key=16 8ef6e61fc682e2fbcff6cfd9c7db8ddd
+       ah=sha256 key=32 0f97fb0af67bfb305ff46ec25b2262a17e945459c34b19b26b33f206bf7e34c3
+  dec:pkts/bytes=0/0, enc:pkts/bytes=3006/456056
+  npu_flag=03 npu_rgwy=190.166.104.66 npu_lgwy=10.1.0.3 npu_selid=e dec_npuid=1 enc_npuid=1 npu_isaidx=1925 npu_osaidx=8
+proxyid=ANTILLANA proto=0 sa=1 ref=16 serial=4 auto-negotiate
+  src: 0:172.16.18.0-172.16.18.255:0
+  dst: 0:172.16.0.0-172.16.15.255:0
+  SA:  ref=6 options=18227 type=00 soft=0 mtu=1422 expire=15118/0B replaywin=2048
+       seqno=977c esn=0 replaywin_lastseq=00009864 qat=0 rekey=0 hash_search_len=1
+  life: type=01 bytes=0/0 timeout=42900/43200
+  dec: spi=9328fb6c esp=aes key=16 9d1ff2b985ac4a8788e209b969044914
+       ah=sha256 key=32 fb99a669ff8bf66603be1a81bdd50f3a2038179fb00801e5e8b7a4c0e131f5e4
+  enc: spi=c0bb47b2 esp=aes key=16 a9d7f71cf6aa447fdf98721cf79f40e5
+       ah=sha256 key=32 d14a5dfd5f5a59a4bf08f67b24e7fceefe1f319fa5344612f1a67479c8eccafb
+  dec:pkts/bytes=0/0, enc:pkts/bytes=12269/2760004
+  npu_flag=03 npu_rgwy=190.166.104.66 npu_lgwy=10.1.0.3 npu_selid=f dec_npuid=1 enc_npuid=1 npu_isaidx=1926 npu_osaidx=9
+------------------------------------------------------
+name=ANTILLANA2 ver=1 serial=d 200.26.168.87:0->45.169.195.187:0 nexthop=10.15.10.15 tun_id=45.169.195.187 tun_id6=::45.169.195.187 status=up dst_mtu=1480 weight=1
+bound_if=54 real_if=54 lgwy=static/1 tun=intf mode=auto/1 encap=none/552 options[0228]=npu frag-rfc  run_state=0 role=primary accept_traffic=1 overlay_id=0
+
+proxyid_num=1 child_num=0 refcnt=4 ilast=70062 olast=70062 ad=/0
+stat: rxp=0 txp=0 rxb=0 txb=0
+dpd: mode=on-demand on=1 status=ok idle=20000ms retry=3 count=0 seqno=78
+natt: mode=none draft=0 interval=0 remote_port=0
+fec: egress=0 ingress=0
+proxyid=ORBIS2-AC1 proto=0 sa=1 ref=2 serial=15 auto-negotiate
+  src: 0:172.16.18.0-172.16.18.255:0 0:172.15.3.0-172.15.3.255:0
+  dst: 0:172.16.4.0-172.16.4.255:0 0:172.16.10.0-172.16.10.255:0
+  SA:  ref=3 options=18227 type=00 soft=0 mtu=1406 expire=18030/0B replaywin=2048
+       seqno=1 esn=0 replaywin_lastseq=00000000 qat=0 rekey=0 hash_search_len=1
+  life: type=01 bytes=0/0 timeout=42903/43200
+  dec: spi=9328fb6d esp=aes key=16 f816988c559ba8d8953970cda5b3cde7
+       ah=sha256 key=32 0334b91cc487acd92f9505ed9867adfe745fbd89a5ccc953eee8dd6d4d21dfcd
+  enc: spi=c0bb47b3 esp=aes key=16 3676baf750c63d37789207f88a1b6e21
+       ah=sha256 key=32 eca77924a759b31c738e5becb929f449402e39a8e7a15fdd95e65f2727569d20
+  dec:pkts/bytes=0/0, enc:pkts/bytes=0/0
+  npu_flag=00 npu_rgwy=45.169.195.187 npu_lgwy=200.26.168.87 npu_selid=28 dec_npuid=0 enc_npuid=0 npu_isaidx=-1 npu_osaidx=-1
+
+LN-TM-ORBIS-2482330611DO #

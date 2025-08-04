@@ -1,0 +1,16 @@
+Sufijo DNS específico para la conexión: orbis.lab-orbis.com
+Descripción: Intel(R) 82579LM Gigabit Network Connection
+Dirección física: ‎B8-CA-3A-94-28-26
+Habilitado para DHCP: Sí
+Dirección IPv4: 172.15.3.136
+Máscara de subred IPv4: 255.255.255.0
+Concesión obtenida: miércoles, 18 de junio de 2025 09:48:14 a.m.
+La concesión expira: viernes, 04 de julio de 2025 07:46:19 a.m.
+Puerta de enlace predeterminada IPv4: 172.15.3.1
+Servidor DHCP IPv4: 172.16.18.7
+Servidor DNS IPv4: 172.15.3.1
+Servidor WINS IPv4: 
+Habilitado para NetBios a través de Tcpip: Sí
+
+
+1108432438

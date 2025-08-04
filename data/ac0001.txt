@@ -1,0 +1,6 @@
+\\serverspn.laantillana.local
+
+
+
+; ANTES: \\172.16.4.44]
+; AHOTA: serverspn.laantillana.local

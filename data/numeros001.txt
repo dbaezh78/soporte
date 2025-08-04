@@ -1,0 +1,22 @@
+numeros pequeños
+⁰ (cero)
+
+¹ (uno)
+
+² (dos)
+
+³ (tres)
+
+⁴ (cuatro)
+
+⁵ (cinco)
+
+⁶ (seis)
+
+⁷ (siete)
+
+⁸ (ocho)
+
+⁹ (nueve)
+
+⁰¹²³⁴⁵⁶⁷⁸⁹

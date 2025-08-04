@@ -1,0 +1,20 @@
+diagnose debug reset
+diagnose debug disable
+diagnose debug console timestamp enable
+diagnose debug flow filter clear
+diagnose debug flow filter saddr 172.15.3.136
+diagnose debug flow filter daddr 172.16.4.44
+diagnose debug flow trace start 100
+diagnose debug enable
+
+
+
+
+diagnose debug reset
+diagnose debug disable
+diagnose debug console timestamp enable
+diagnose debug flow filter clear
+diagnose debug flow filter saddr 172.15.3.136
+diagnose debug flow filter daddr 172.16.4.44
+diagnose debug flow trace start 100
+diagnose debug enable

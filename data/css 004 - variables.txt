@@ -1,0 +1,83 @@
+Precatecumenado
+Catecumenado
+Liturgia
+Eleccion
+
+
+
+
+--TrasfondoCanto: #bde9ff3d
+--FondoCanto: catG
+
+CatCanto
+PreCatecumenado: white
+Catecumenado: #bde9ff
+Liturgico: #FFFFCB
+Eleccion: #CEFFCF
+
+
+.main-wrapper {
+	background-color: --CatCanto
+	}
+	
+	body {
+	background-color: --TrasfondoCanto
+	
+	
+	
+	
+	la ultima actualizacion no era lo que queria, los cambios son basicos y son practamente dos, porque es para agregar al css algunas variables para cambiar el fondo de .main-wrapper y el fondo de body, por ejemplo el fonde de .main-wrapper será según algo que le llamo CatCanto como Categoria del Canto
+
+entonces esta categoria la manejaré con estos nombre en el archivo js llamado canto_data.js, estará debajo de notes: "", y se llamará catCanto: "" y sus valores serán los que definiran el fondo de las dos clases que te di, .main-wrapper  con el color que le he asignado:
+
+CatCanto
+
+PreCatecumenado: white
+
+Catecumenado: #bde9ff
+
+Liturgico: #FFFFCB
+
+Eleccion: #CEFFCF
+
+
+
+sería algo asi
+
+.main-wrapper {
+
+	background-color: --FondoCanto
+
+	}
+
+y para body
+
+	body {
+
+	background-color: --TrasfondoCanto
+
+}
+
+
+
+el TrasfondoCanto será igual que FondoCanto pero con un 80% de transparencia
+
+
+
+te dejo los archivos para que puedas trabajar sobre esta actualización.
+
+
+
+te pido por favor que no cambies nada en los archivos sino que solo agregues y asi yo poder identificar los cambios que has hecho y que sea lo mas simple posible por favor
+	
+	
+    --precat: white;
+    --liturgia: #FFFFCB;
+    --cat: #bde9ff;
+    --eleccion: #CEFFCF;
+	
+	
+Precatecumenado
+Catecumenado
+Liturgia
+Eleccion

@@ -1,0 +1,19 @@
+# hay que montar la carpeta con el usuario: hdbadm para que se pueda escribir la base de datos
+sudo mount -t cifs -o credentials=/etc/smbcredentials/ubackup.cred,vers=3.0,domain=laantillana.local,uid=hdbadm,gid=sapsys //172.16.4.41/Shared-Folders/Backup/SAP/HanaPro /hana/backup
+
+cd /usr/sap/HDB/HDB02/backup/data/
+
+#linkeamos la carpeta en SYSTEMDB
+ln -s /hana/backup/SYSTEMDB/ data/
+
+#linkeamos la carpeta en DB_HDB
+ln -s /hana/backup/DB_HDB/ data/
+
+#dentro de la capeta podemos usar el siguiente comando y montamos las dos al mismo tiempo
+
+ln -s /hana/backup/DB_HDB/ && ln -s /hana/backup/SYSTEMDB/
+
+#y le damos los permisos necesario
+
+sudo chown -R hdbadm:sapsys SYSTEMDB && sudo chown -R hdbadm:sapsys DB_HDB
+

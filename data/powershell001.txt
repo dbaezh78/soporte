@@ -1,0 +1,5 @@
+powershell -command "Get-ChildItem -Path 'C:\ProgramData' -Recurse -File | Where-Object { $_.LastWriteTime -gt (Get-Date).AddMinutes(-10) } | Select-Object FullName, LastWriteTime"
+
+
+Get-ChildItem : Access to the path 'C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_Ta100Pro.exe_3858af7598
+

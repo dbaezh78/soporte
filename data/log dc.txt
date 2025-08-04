@@ -1,0 +1,35 @@
+Network Policy Server granted access to a user.
+
+User:
+	Security ID:			LAANTILLANA\burena
+	Account Name:			burena
+	Account Domain:			LAANTILLANA
+	Fully Qualified Account Name:	LAANTILLANA\burena
+
+Client Machine:
+	Security ID:			NULL SID
+	Account Name:			-
+	Fully Qualified Account Name:	-
+	Called Station Identifier:		80-2A-A8-84-71-DA:AC_ADM
+	Calling Station Identifier:		66-79-D1-21-F9-74
+
+NAS:
+	NAS IPv4 Address:		172.16.30.9
+	NAS IPv6 Address:		-
+	NAS Identifier:			802aa88471da
+	NAS Port-Type:			Wireless - IEEE 802.11
+	NAS Port:			-
+
+RADIUS Client:
+	Client Friendly Name:		UBNT
+	Client IP Address:			172.16.30.9
+
+Authentication Details:
+	Connection Request Policy Name:	AC_TIC
+	Network Policy Name:		UBNT
+	Authentication Provider:		Windows
+	Authentication Server:		dc01.laantillana.local
+	Authentication Type:		PEAP
+	EAP Type:			Microsoft: Secured password (EAP-MSCHAP v2)
+	Account Session Identifier:		39433743373832384434304537333546
+	Logging Results:			Accounting information was written to the local log file.

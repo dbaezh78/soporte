@@ -1,0 +1,14 @@
+para cambiar caracteres en excel
+
+=LET(
+   texto, I1,
+   caracteres, {"Á";"É";"Í";"Ó";"Ú";"Ñ";"á";"é";"í";"ó";"ú";"ñ";" ";".";"-";",";"señor";"yahveh"},
+   reemplazos, {"a";"e";"i";"o";"u";"n";"a";"e";"i";"o";"u";"n";"";"";"";"";"Señor";"Yahveh"},
+   LOWER(
+      REDUCE(
+         texto,
+         SEQUENCE(COUNTA(caracteres)),
+         LAMBDA(acc,i, SUBSTITUTE(acc, INDEX(caracteres, i), INDEX(reemplazos, i)))
+      )
+   )
+)

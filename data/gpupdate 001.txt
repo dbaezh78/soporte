@@ -1,0 +1,20 @@
+Microsoft Windows [Versión 10.0.19045.5965]
+(c) Microsoft Corporation. Todos los derechos reservados.
+
+C:\Users\kroa>gpupdate /force
+Actualizando directiva...
+
+La directiva de equipo no se puede actualizar correctamente debido a los siguientes errores:
+
+Error al procesar la directiva de grupo. Windows no pudo leer el archivo \\laantillana.local\SysVol\laantillana.local\Policies\{15018D60-FCC6-4A72-8FAA-47534217E546}\gpt.ini desde un controlador de dominio. La configuración de la directiva de grupo no se podrá aplicar hasta que se solucione este evento. Debe tratarse de un error temporal y puede deberse a alguna de la causas siguientes:
+a) Un problema con la resolución de nombres o con la conectividad de red al controlador de dominio actual.
+b) Latencia del servicio de replicación de archivos (una cuenta creada en otro controlador de dominio no se replicó en el controlador de dominio actual).
+c) El cliente del Sistema de archivos distribuido (DFS) está deshabilitado.
+La directiva de usuario no se puede actualizar correctamente debido a los siguientes errores:
+
+Error al procesar la directiva de grupo. Windows no pudo leer el archivo \\laantillana.local\SysVol\laantillana.local\Policies\{15018D60-FCC6-4A72-8FAA-47534217E546}\gpt.ini desde un controlador de dominio. La configuración de la directiva de grupo no se podrá aplicar hasta que se solucione este evento. Debe tratarse de un error temporal y puede deberse a alguna de la causas siguientes:
+a) Un problema con la resolución de nombres o con la conectividad de red al controlador de dominio actual.
+b) Latencia del servicio de replicación de archivos (una cuenta creada en otro controlador de dominio no se replicó en el controlador de dominio actual).
+c) El cliente del Sistema de archivos distribuido (DFS) está deshabilitado.
+
+Para diagnosticar el error, revise el registro de eventos o ejecute GPRESULT /H GPReport.html para obtener acceso a la información sobre los resultados de la directiva de grupo.

@@ -1,0 +1,10 @@
+antes:	/hana/backups/DB_HDB
+
+
+
+/usr/sap/HDB/HDB02/backup/data
+
+/usr/sap/HDB/HDB02/backup/data/DB_HDB
+
+
+

@@ -1,0 +1,1404 @@
+FGT-ANTILLANA-100F # config firewall policy
+
+FGT-ANTILLANA-100F (policy) # show
+config firewall policy
+    edit 4
+        set name "Bloqueo de Paises"
+        set uuid 0df6194a-51a3-51ed-ed77-322e6c909afd
+        set srcintf "virtual-wan-link"
+        set dstintf "any"
+        set srcaddr "Country Lock"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 3
+        set name "Access Denied - Public IP"
+        set uuid 0e55e442-51a3-51ed-0b21-e723c5ebb6e8
+        set srcintf "virtual-wan-link"
+        set dstintf "any"
+        set srcaddr "Block Public IP"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 97
+        set status disable
+        set name "Block IP"
+        set uuid e0f6fec0-b265-51ef-60a7-8cca55269631
+        set srcintf "virtual-wan-link"
+        set dstintf "any"
+        set srcaddr "Test-IP"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+        set comments " (Copy of Bloqueo de Paises) (Copy of )"
+    next
+    edit 26
+        set name "Nimbox"
+        set uuid a1676858-01a3-51ef-f544-726faf613786
+        set srcintf "ANTILLANA_GW"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "Nimbox"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set nat enable
+    next
+    edit 22
+        set status disable
+        set name "Permitidos_sin_SSL_Inspection"
+        set uuid 6bf6b370-6034-51ed-fd49-22cf8829746a
+        set srcintf "ANTILLANA_GW"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "Permitidos_sin_SSL_Inspection" "indrhi.gob.do"
+        set schedule "always"
+        set service "HTTP" "HTTPS"
+        set nat enable
+    next
+    edit 86
+        set name "IMPRESORAS | INTERNET"
+        set uuid 7b478656-9b9c-51ef-6409-b5396cd87b30
+        set srcintf "Zone Network"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "PRN address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "certificate-inspection"
+        set logtraffic all
+        set nat enable
+    next
+    edit 50
+        set name "SVR | Internet"
+        set uuid 80cbfc84-6644-51ef-620a-928279b45c27
+        set srcintf "VLAN-3174" "Zone Network"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "Server & Services"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set logtraffic all
+        set nat enable
+    next
+    edit 24
+        set status disable
+        set name "Politica-General"
+        set uuid bd37a814-4767-51ee-95f3-5144236e1809
+        set srcintf "ANTILLANA_GW" "VLAN-3174" "vLan7"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "LAN_ANTILLANA/172.16.7.0/255.255.255.0" "PRINTER_ANTILLANA/172.16.2.0/24" "WIFI_ANTILLANA/172.16.6.0/24" "vLan7 address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set webfilter-profile "Bloqueo_content_adult_security"
+        set dnsfilter-profile "default"
+        set application-list "default"
+        set logtraffic all
+        set nat enable
+        set comments "LAN_ANTILLANA_SDWAN"
+    next
+    edit 9
+        set status disable
+        set name "TELEFONOS_ANTILLANA_SDWAN"
+        set uuid 0e06ce16-51a3-51ed-8e1f-1cdbb1623934
+        set srcintf "ANTILLANA_GW"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "TELEFONOS_ANTILLANA/172.16.5.0/24"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set webfilter-profile "default"
+        set ips-sensor "high_security"
+        set logtraffic all
+        set nat enable
+    next
+    edit 25
+        set name "Server_acronis"
+        set uuid 203cc2cc-c9be-51ee-f4d4-a23e431b455f
+        set srcintf "ANTILLANA_GW"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "ApplianceAcronis"
+        set dstaddr "Acronis Backup"
+        set schedule "always"
+        set service "HTTPS"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set ips-sensor "protect_client"
+        set logtraffic all
+        set nat enable
+        set comments " (Copy of SERVIDOR_ANTILLANA_SDWAN)"
+    next
+    edit 43
+        set name "Server Acronis Backup"
+        set uuid 86a0728e-63ce-51ef-bd9d-77bae936f67d
+        set srcintf "ANTILLANA_GW"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "ApplianceAcronis"
+        set internet-service enable
+        set internet-service-name "Acronis-Cyber.Cloud"
+        set schedule "always"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set ips-sensor "protect_client"
+        set logtraffic all
+        set nat enable
+    next
+    edit 16
+        set name "vcenter_to_ad"
+        set uuid 0e898536-51a3-51ed-b45a-d722aa269ea0
+        set srcintf "vlan_mgmt"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "VCENTER"
+        set dstaddr "VLAN-3174 address"
+        set schedule "always"
+        set service "ALL"
+    next
+    edit 17
+        set name "SVR | vCenter"
+        set uuid 0e91a090-51a3-51ed-ca68-b2d778f028b3
+        set srcintf "VLAN-3174"
+        set dstintf "vlan_mgmt"
+        set action accept
+        set srcaddr "VLAN-3174 address"
+        set dstaddr "VCENTER"
+        set schedule "always"
+        set service "ALL"
+    next
+    edit 1
+        set name "SSL-VPN-TUNNEL"
+        set uuid 693d95ce-a8d8-51ef-de55-319d95706566
+        set srcintf "ssl.root"
+        set dstintf "VLAN-3174" "Zone ADM"
+        set action accept
+        set srcaddr "SSL-VPN-AC"
+        set dstaddr "Server IP Selected"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection sServer"
+        set logtraffic all
+        set groups "Forti-VPN"
+        set users "acsslvpn"
+    next
+    edit 23
+        set name "Acceso_posibilia_Consultores"
+        set uuid 419ffba8-1aa7-51ee-6ae9-8854f26b876b
+        set srcintf "ssl.root"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "SSLVPN_TUNNEL_ADDR1"
+        set dstaddr "SAP_PRD" "SER3115-PISIBILIA"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "wifi-default"
+        set ips-sensor "default"
+        set users "angelica.grillo" "enoc.baez"
+        set comments " (Copy of VPN)"
+    next
+    edit 21
+        set name "VPN"
+        set uuid d89c96fa-51a4-51ed-72a2-42df1ac5f9bc
+        set srcintf "ssl.root"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "SSLVPN_TUNNEL_ADDR1"
+        set dstaddr "SERVIDOR_ANTILLANA_/172.16.4.0/24"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "wifi-default"
+        set ips-sensor "default"
+        set groups "soporte"
+    next
+    edit 28
+        set name "SVR | AP"
+        set uuid 169e742a-58ea-51ef-f503-b911234b9058
+        set srcintf "ANTILLANA_GW" "VLAN-3174" "Zone Wireless"
+        set dstintf "Zone Wireless"
+        set action accept
+        set srcaddr "AC_Network_Server" "AC Network User" "WADM address"
+        set dstaddr "WADM address" "AP address"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+    next
+    edit 33
+        set name "User | AC_ADM"
+        set uuid abeac0f6-5afc-51ef-d283-ebc4b53ee20a
+        set srcintf "ANTILLANA_GW" "PORTCHANNEL-A"
+        set dstintf "Zone Wireless"
+        set action accept
+        set srcaddr "AC Network User" "AC_Network_Server"
+        set dstaddr "WADM address"
+        set schedule "always"
+        set service "ALL"
+    next
+    edit 34
+        set name "AC_ADM | Server"
+        set uuid d347d5c0-5b0c-51ef-d868-db468c28f7d6
+        set srcintf "Zone Wireless" "Zone ADM"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "Zone ADM"
+        set dstaddr "AC Network User" "AC_Network_Server"
+        set schedule "always"
+        set service "ALL"
+    next
+    edit 2
+        set status disable
+        set name "Access Denied"
+        set uuid edcf621e-bc8c-51ef-bc3a-1e9375f5f61a
+        set srcintf "Zone ADM"
+        set dstintf "virtual-wan-link"
+        set srcaddr "TIC address"
+        set dstaddr "NoPort"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic disable
+        set comments "Reservada para futura Politica"
+    next
+    edit 110
+        set name "BlockIP"
+        set uuid e95c8388-30db-51f0-ad89-33b751d2a51e
+        set srcintf "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set srcaddr "BlockIP"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 96
+        set name "iDNS"
+        set uuid 3c527d66-b25d-51ef-9794-40063f419cb9
+        set srcintf "Zone ADM" "Zone Wireless" "Zone Servers" "Zone Network" "VLAN-3174"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "Zone ADM" "Zone Network" "VLAN-3174 address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "DNS"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set logtraffic all
+        set nat enable
+        set comments "iDNS DNS para Internet "
+    next
+    edit 10
+        set name "iMessage"
+        set uuid 4ea37c90-bd5c-51ef-b5ec-43672c3334fe
+        set srcintf "Zone Wireless" "Zone ADM"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "all"
+        set internet-service enable
+        set internet-service-name "Meta-Whatsapp" "Telegram-Telegram"
+        set schedule "always"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set logtraffic all
+        set nat enable
+        set comments "Politica de Acceso de Mensaje
+- Whatsapp
+- Telegram"
+    next
+    edit 61
+        set name "iMicrosoft 365"
+        set uuid 51f96ff4-80cf-51ef-2d6a-0c9746434620
+        set srcintf "Zone ADM" "Zone Network" "Zone Servers" "Zone Wireless" "VLAN-3174"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "Zone ADM" "Zone Network" "VLAN-3174 address"
+        set internet-service enable
+        set internet-service-name "Microsoft-Office365" "Microsoft-Outlook" "Microsoft-Web" "Microsoft-Azure"
+        set schedule "always"
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set logtraffic all
+        set nat enable
+        set comments "Internet for Microsoft 365"
+    next
+    edit 100
+        set name "Alejandro"
+        set uuid 69c3eb96-2ccd-51f0-efc9-80ee60a9cb96
+        set srcintf "Zone ADM" "Zone Network" "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "MacMini_Alejandro" "MacMini-Ale_IP"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "AC_Rodriguez"
+        set av-profile "default"
+        set webfilter-profile "AC_Rodriguez"
+        set dnsfilter-profile "AC_Rodriguez"
+        set application-list "AC_Rodriguez"
+        set logtraffic all
+        set nat enable
+        set fixedport enable
+    next
+    edit 78
+        set name "iTecnologia"
+        set uuid 315c6178-a8ea-51ef-6571-648b01e746dc
+        set srcintf "Zone ADM"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "TIC address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set webfilter-profile "iTecnologia"
+        set dnsfilter-profile "iTecnologia"
+        set application-list "iTecnologia"
+        set logtraffic all
+        set nat enable
+        set port-preserve disable
+    next
+    edit 90
+        set name "Verifone en NetMercadeo"
+        set uuid f9557f24-00e3-51f0-32d1-9457f15761a8
+        set srcintf "Zone ADM"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "Verifones"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set webfilter-profile "default"
+        set dnsfilter-profile "default"
+        set logtraffic all
+        set nat enable
+    next
+    edit 105
+        set name "Internet Direccion"
+        set uuid 209675fe-e23d-51ef-a0f5-1e39108d7be3
+        set srcintf "Zone ADM"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "DIR address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set logtraffic all
+        set nat enable
+        set port-preserve disable
+    next
+    edit 48
+        set name "iFull"
+        set uuid 009e46ac-6545-51ef-8ee5-7d574050501f
+        set srcintf "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "WADM address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set webfilter-profile "iFull"
+        set dnsfilter-profile "default"
+        set application-list "default"
+        set nat enable
+        set groups "Internet Full"
+    next
+    edit 53
+        set name "AC_ADM | Microsoft"
+        set uuid 92661ae0-6bc3-51ef-4214-028cebf27bad
+        set srcintf "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "WADM address"
+        set internet-service enable
+        set internet-service-name "Microsoft-Office365" "Microsoft-Web" "Microsoft-Outlook" "Microsoft-Azure" "Microsoft-Azure.ATP" "Microsoft-Other"
+        set schedule "always"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set nat enable
+    next
+    edit 36
+        set name "AP | Server"
+        set uuid dba89436-5b23-51ef-2e4f-1fbe96785c4c
+        set srcintf "Zone Wireless"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "AP address"
+        set dstaddr "AC_Network_Server"
+        set schedule "always"
+        set service "ALL"
+    next
+    edit 39
+        set name "AP | Internet"
+        set uuid 1fcbdb2a-5f0f-51ef-69b7-044d3131cc5d
+        set srcintf "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "AP address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set nat enable
+    next
+    edit 38
+        set name "Server | AP\'s IoT"
+        set uuid 1465d214-5e37-51ef-ed4c-2758558c14e4
+        set srcintf "VLAN-3174"
+        set dstintf "Zone Wireless"
+        set action accept
+        set srcaddr "AC_Network_Server"
+        set dstaddr "AP address"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 87
+        set name "Zone ADM | iFlex"
+        set uuid 76d52640-a034-51ef-e035-8d3a123bcd88
+        set srcintf "Zone ADM" "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "Zone ADM"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "iFlex Certificate-Inspection"
+        set av-profile "default"
+        set webfilter-profile "iFlex"
+        set dnsfilter-profile "iFlex DNS"
+        set application-list "iFlex"
+        set logtraffic all
+        set nat enable
+        set groups "Internet Flex"
+    next
+    edit 95
+        set name "Zone ADM | iFull"
+        set uuid 2132968a-b256-51ef-7b4e-ec7f4c9b6399
+        set srcintf "Zone ADM" "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "Zone ADM"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set webfilter-profile "iFull"
+        set dnsfilter-profile "iFull"
+        set application-list "iFull"
+        set nat enable
+        set fixedport enable
+        set groups "Internet Full"
+    next
+    edit 41
+        set name "TIC | MGMT"
+        set uuid 5c32a15a-5fc0-51ef-0cb3-7403c70c3237
+        set srcintf "Zone ADM"
+        set dstintf "vlan_mgmt" "VLAN-3174" "ANTILLANA_GW" "Zone ADM"
+        set action accept
+        set srcaddr "TIC address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 37
+        set name "Wireless GST | iFull"
+        set uuid 30abcab4-5ff4-51ef-3f49-c82da9b4e5f5
+        set srcintf "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "WGST address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set webfilter-profile "iFull"
+        set dnsfilter-profile "iFull"
+        set application-list "iFull"
+        set logtraffic all
+        set nat enable
+        set port-preserve disable
+    next
+    edit 98
+        set name "WGST | TV"
+        set uuid 4237e2b2-b270-51ef-8ce5-d0a540511900
+        set srcintf "Zone Wireless"
+        set dstintf "Zone Wireless"
+        set action accept
+        set srcaddr "WGST address"
+        set dstaddr "SmartTV-IP"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 44
+        set name "AC_ADM | AP"
+        set uuid 3700d048-6487-51ef-787e-8aed4707e6d9
+        set srcintf "Zone Wireless"
+        set dstintf "Zone Wireless"
+        set action accept
+        set srcaddr "WADM address"
+        set dstaddr "AP address"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 45
+        set name "toMGMT"
+        set uuid ca70d474-648a-51ef-39d2-e64906872a9b
+        set srcintf "Zone Wireless"
+        set dstintf "vlan_mgmt"
+        set action accept
+        set srcaddr "Laptop sysa"
+        set dstaddr "vlan_mgmt address"
+        set schedule "always"
+        set service "ALL"
+    next
+    edit 52
+        set name "SVR | ADM"
+        set uuid c8c70f80-6ac0-51ef-5a70-5a01ff9dc4a8
+        set srcintf "VLAN-3174"
+        set dstintf "Zone ADM"
+        set action accept
+        set srcaddr "VLAN-3174 address"
+        set dstaddr "Zone ADM"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "No-Inspection"
+        set av-profile "default"
+        set logtraffic all
+    next
+    edit 92
+        set name "sServer | PRN"
+        set uuid b30b0fe8-bc96-51ef-efed-3bcebf179d90
+        set srcintf "VLAN-3174"
+        set dstintf "Zone Network"
+        set action accept
+        set srcaddr "PrintServer_StoDgo"
+        set dstaddr "NetworkPrint"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 103
+        set status disable
+        set name "SVR | Santiago"
+        set uuid b148c854-b894-51ef-8534-0b07febda8f7
+        set srcintf "VLAN-3174"
+        set dstintf "Zone ADM" "Zone Network" "vLan7"
+        set action accept
+        set srcaddr "VLAN-3174 address"
+        set dstaddr "Zone ADM" "TIC address" "PRN address" "Lan Santiago" "vLan7 address"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+        set ssl-ssh-profile "No-Inspection sServer"
+        set logtraffic all
+    next
+    edit 47
+        set name "SRV|SRV"
+        set uuid 72caafbc-6532-51ef-46a4-bdd516b231bd
+        set srcintf "Zone Servers"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "SRV address"
+        set dstaddr "VLAN-3174 address"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "No-Inspection"
+        set av-profile "default"
+    next
+    edit 49
+        set name "SRV"
+        set uuid 90e3762c-6588-51ef-eeee-dd532b8e1607
+        set srcintf "Zone Servers"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "SRV address"
+        set dstaddr "AC_Network_Server"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+        set logtraffic all
+    next
+    edit 51
+        set name "AcronisBK | AcronisCloud"
+        set uuid 502b20ca-6a07-51ef-ff04-9dbd2872679e
+        set srcintf "VLAN-3174"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "ApplianceAcronis"
+        set dstaddr "Acronis Backup"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "iAcronis Certificate-Inspection"
+        set av-profile "default"
+        set ips-sensor "protect_client"
+        set logtraffic all
+        set nat enable
+        set comments "VPN Appliance > AcronisBK | AcronisCloud"
+    next
+    edit 54
+        set status disable
+        set name "ANTILLANAGW | HANA"
+        set uuid f4bb46ac-6c63-51ef-1052-1cfc46afdf93
+        set srcintf "ANTILLANA_GW"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "AC_Network_Server"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+    next
+    edit 55
+        set status disable
+        set name "VPN WatchG to HANA"
+        set uuid 681c85f2-6c64-51ef-1fde-229df9dfbd5b
+        set srcintf "VLAN-3174" "Zone ADM"
+        set dstintf "ANTILLANA_GW"
+        set action accept
+        set srcaddr "AC_Network_Server" "TIC address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+        set comments " (Reverse of ANTILLANAGW | HANA)"
+    next
+    edit 57
+        set status disable
+        set name "SRV| vLan7"
+        set uuid 5e0ca89e-6c78-51ef-071b-2551b2fc4a7a
+        set srcintf "VLAN-3174" "Zone ADM"
+        set dstintf "vLan7"
+        set action accept
+        set srcaddr "VLAN-3174 address" "TIC address"
+        set dstaddr "vLan7 address" "Lan Santiago"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection sServer"
+        set logtraffic all
+        set comments " (Reverse of vLan 7 | Server)"
+    next
+    edit 58
+        set status disable
+        set name "vLan 7 | Svr"
+        set uuid 2c531f94-71d3-51ef-ebf5-8df6e4491cac
+        set srcintf "VLAN-3174"
+        set dstintf "ANTILLANA_GW"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 56
+        set status disable
+        set name "User | Server"
+        set uuid 544429c2-7213-51ef-9bd9-51ba44672b48
+        set srcintf "ANTILLANA_GW"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "AC Network User"
+        set dstaddr "VLAN-3174 address"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 60
+        set name "MGMT AC_Guest"
+        set uuid d7712a28-80ca-51ef-95a2-76bc96ad3437
+        set srcintf "Zone ADM"
+        set dstintf "Zone Wireless"
+        set action accept
+        set srcaddr "wsReception"
+        set dstaddr "AP"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+    next
+    edit 62
+        set name "Zone ADM | Zone Server"
+        set uuid 5c862f0a-80d1-51ef-36bf-820506875089
+        set srcintf "Zone ADM"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "Zone ADM"
+        set dstaddr "VLAN-3174 address"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 63
+        set name "Zone Server | Zone ADM"
+        set uuid 8d3754ee-80d1-51ef-6f1c-d69d6abc4acd
+        set srcintf "VLAN-3174"
+        set dstintf "Zone ADM"
+        set action accept
+        set srcaddr "VLAN-3174 address"
+        set dstaddr "Zone ADM"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 64
+        set name "Zone ADM | Zone ADM"
+        set uuid de56ab92-84e9-51ef-02e1-c704d5bcc631
+        set srcintf "Zone Wireless"
+        set dstintf "Zone ADM"
+        set action accept
+        set srcaddr "WADM address"
+        set dstaddr "DevicePulse"
+        set schedule "always"
+        set service "Web Access"
+        set utm-status enable
+        set ssl-ssh-profile "No-Inspection"
+        set av-profile "default"
+        set logtraffic all
+    next
+    edit 65
+        set status disable
+        set name "PRTG | Fortigate"
+        set uuid 24db90a4-8649-51ef-eb32-570b295c45ff
+        set srcintf "VLAN-3174"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "VLAN-3174 address"
+        set dstaddr "VLAN-3174 address"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+        set logtraffic all
+    next
+    edit 67
+        set status disable
+        set name "Santiago | AC"
+        set uuid b9662a22-87d4-51ef-e70b-9ac531b35f0b
+        set srcintf "ANTILLANA_GW"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "ANTILLANA_GW address"
+        set dstaddr "ServerHanaPro" "ServerHanaQA" "ServerHanaDEV"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 70
+        set name "Finanza | Integra"
+        set uuid 67d12630-8b08-51ef-4a23-0db29470ba4c
+        set srcintf "Zone ADM"
+        set dstintf "Zone Servers"
+        set action accept
+        set srcaddr "FNZ address" "TIC address"
+        set dstaddr "INT address"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 94
+        set name "TIC | Network Zone"
+        set uuid ba92dc40-ae73-51ef-46be-b14fe517f98c
+        set srcintf "Zone ADM"
+        set dstintf "Zone Network"
+        set action accept
+        set srcaddr "TIC address"
+        set dstaddr "Zone Network"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 71
+        set name "TIC | Network Data Center"
+        set uuid 7c209abe-8b1a-51ef-2a58-b78fb3318e66
+        set srcintf "Zone ADM"
+        set dstintf "Zone Servers" "Zone Wireless" "Zone Network"
+        set action accept
+        set srcaddr "Network Tecnologia"
+        set dstaddr "Zone Data Center"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 72
+        set name "TIC | vLan 7 AC-OLD"
+        set uuid 6abdb27a-8b42-51ef-e304-3bae8bfac25e
+        set srcintf "Zone ADM"
+        set dstintf "vLan7"
+        set action accept
+        set srcaddr "TIC address"
+        set dstaddr "Lan Santiago" "NetvLan7"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 73
+        set name "LanAC-OLD | Server"
+        set uuid c8d2c5de-8b57-51ef-5589-80979b3e6e93
+        set srcintf "vLan7"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 74
+        set status disable
+        set name "Aruba | Server"
+        set uuid a2642f46-8bd4-51ef-0bbc-f2d0a47245a0
+        set srcintf "ANTILLANA_GW"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 76
+        set name "vpn_FACCOLUMBUS"
+        set uuid c1cc9a84-8d51-51ef-ae53-e9b39389d55c
+        set srcintf "FACCOLUMBUS"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "FACCOLUMBUS_range"
+        set dstaddr "RS Server"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+        set comments "VPN: FACALTICE Edited by dbaezh"
+    next
+    edit 83
+        set name "FACCOLUMBUS | ACRONIS"
+        set uuid ab04f8ca-954c-51ef-1edb-497f1929042a
+        set srcintf "FACCOLUMBUS"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "FACCOLUMBUS_range"
+        set dstaddr "FACCOLUMBUS_split_Acronis"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+        set comments "VPN: FACCOLUMBUS (Created by VPN wizard) (vpn_FACCOLUMBUS_remote_0)"
+    next
+    edit 77
+        set name "TIC | AC_ADM"
+        set uuid 0444c402-8d5e-51ef-7c82-9678165ad410
+        set srcintf "Zone ADM"
+        set dstintf "Zone Wireless"
+        set action accept
+        set srcaddr "AC Network TIC"
+        set dstaddr "Zone ADM"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+        set comments "Para Soporte a los usuarios de Antillana Comercial"
+    next
+    edit 75
+        set name "vpn_FACCLARO1"
+        set uuid a3e85dd2-8fb3-51ef-1e8a-3c518c592e70
+        set srcintf "FACCLARO1"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "FACCLARO1_range"
+        set dstaddr "RS Server"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+        set comments "VPN: FACCLARO1 (Created by VPN wizard)"
+    next
+    edit 80
+        set name "AC_VISITAS | UniFiController"
+        set uuid 6511e256-9187-51ef-c62c-2e939008ad3d
+        set srcintf "Zone Wireless"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "WGST address"
+        set dstaddr "PrintServer_StoDgo"
+        set schedule "always"
+        set service "UniFiControlller Visitas"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 81
+        set name "AC_ADM | AC_Meet"
+        set uuid 58b8174a-9214-51ef-7938-f36a725abf5c
+        set srcintf "Zone Wireless"
+        set dstintf "Zone Network"
+        set action accept
+        set srcaddr "WADM address"
+        set dstaddr "DIOT address"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 84
+        set name "ADMNet | nPrintServer"
+        set uuid 2d8ff1fa-97cd-51ef-92e4-18733be3933b
+        set srcintf "Zone ADM" "VLAN-3174"
+        set dstintf "Zone Network"
+        set action accept
+        set srcaddr "Zone ADM" "PrintServer_StoDgo"
+        set dstaddr "NetworkPrint"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 82
+        set name "Server | Network"
+        set uuid 0140e910-92dc-51ef-03c1-4383059466f7
+        set srcintf "VLAN-3174"
+        set dstintf "Zone Network"
+        set action accept
+        set srcaddr "DomainController"
+        set dstaddr "DSW address"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 93
+        set name "SVR | PRN"
+        set uuid 060e8144-a913-51ef-0535-d6ac2be9a4ca
+        set srcintf "VLAN-3174"
+        set dstintf "Zone Network"
+        set action accept
+        set srcaddr "VLAN-3174 address"
+        set dstaddr "PRN address"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 79
+        set name "SPN | RelojBiometrico"
+        set uuid 2772f01c-90b4-51ef-9a93-780873fb7c42
+        set srcintf "VLAN-3174" "Zone ADM"
+        set dstintf "Zone Network"
+        set action accept
+        set srcaddr "ServerSPN" "RRHH address"
+        set dstaddr "DRBM address"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "No-Inspection"
+        set logtraffic all
+    next
+    edit 91
+        set name "PRN | sServer"
+        set uuid f20ce4f8-bc93-51ef-1c29-0e99f974f4f9
+        set srcintf "Zone Network"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "NetworkPrint"
+        set dstaddr "PrintServer_StoDgo"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 85
+        set name "PRN | PrintServer"
+        set uuid 348d3604-9866-51ef-6111-997f3bd49994
+        set srcintf "Zone Network"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "NetworkPrint"
+        set dstaddr "PrintServer_StoDgo" "PrintServer_Santiago" "Server_RD"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 68
+        set name "Switch | NAS"
+        set uuid 07d7a7e8-8a1f-51ef-32d5-dc22bf1b6f4e
+        set srcintf "Zone Network"
+        set dstintf "VLAN-3174" "Zone ADM"
+        set action accept
+        set srcaddr "DSW address"
+        set dstaddr "TIC address" "NAS"
+        set schedule "always"
+        set service "ALL"
+        set inspection-mode proxy
+        set logtraffic all
+    next
+    edit 88
+        set name "Zone ADM | iSurfing"
+        set uuid b64888d8-a036-51ef-24d7-1376b32c9abc
+        set srcintf "Zone ADM" "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "Zone ADM"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "iSurfing Certificate-Inspection"
+        set av-profile "default"
+        set webfilter-profile "iSurfing"
+        set dnsfilter-profile "iSurfing DNS"
+        set application-list "iSurfing"
+        set logtraffic all
+        set nat enable
+        set groups "Internet Surfing"
+    next
+    edit 89
+        set name "Zone ADM | iYoutube"
+        set uuid 833e93b4-a037-51ef-1d5d-9a7543ff8b20
+        set srcintf "Zone ADM" "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "Zone ADM"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set webfilter-profile "iYoutube"
+        set dnsfilter-profile "iYoutube DNS"
+        set application-list "iYoutube"
+        set logtraffic all
+        set nat enable
+        set groups "iYoutube"
+    next
+    edit 35
+        set name "AC_ADM | iFull"
+        set uuid 67052e6a-5b0e-51ef-bbd9-4132c50e12fe
+        set srcintf "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "WADM address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set webfilter-profile "iFlex"
+        set dnsfilter-profile "iFlex DNS"
+        set application-list "iFlex"
+        set logtraffic all
+        set nat enable
+        set comments "Politica para Celulares"
+    next
+    edit 40
+        set status disable
+        set name "Zone ADM | iTemporal"
+        set uuid 694e4de4-5f2f-51ef-8031-aa40598a1fd8
+        set srcintf "Zone ADM" "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "Zone ADM"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set av-profile "default"
+        set webfilter-profile "iSurfing"
+        set dnsfilter-profile "iSurfing DNS"
+        set application-list "iSurfing"
+        set logtraffic all
+        set nat enable
+        set fixedport enable
+        set groups "Domain Users"
+    next
+    edit 42
+        set status disable
+        set name "Wireless ADM"
+        set uuid 39cd0004-5ff4-51ef-47e4-570ac473e4e8
+        set srcintf "Zone Wireless"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "WGST address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "Web Access" "Email Access" "Exchange Server"
+        set utm-status enable
+        set inspection-mode proxy
+        set ssl-ssh-profile "certificate-inspection"
+        set webfilter-profile "default"
+        set dnsfilter-profile "default"
+        set ips-sensor "default"
+        set application-list "default"
+        set logtraffic all
+        set nat enable
+        set comments " (Copy of Zone Wireless) (Copy of )"
+    next
+    edit 101
+        set status disable
+        set name "SRV|vLan7"
+        set uuid e511d75a-b891-51ef-81a3-28cb99bd3aa6
+        set srcintf "VLAN-3174" "Zone ADM"
+        set dstintf "vLan7"
+        set action accept
+        set srcaddr "TIC address" "VLAN-3174 address"
+        set dstaddr "Lan Santiago" "vLan7 address"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 106
+        set name "Servicios Internos"
+        set uuid 5dda39b8-e897-51ef-dfc4-b9185a93ae18
+        set srcintf "Zone Wireless"
+        set dstintf "Zone ADM"
+        set action accept
+        set srcaddr "WADM address"
+        set dstaddr "OPR address"
+        set schedule "always"
+        set service "HTTP" "HTTPS"
+        set logtraffic all
+    next
+    edit 102
+        set name "ORBIS-AC"
+        set uuid 2f9b2ecc-f445-51ef-c4f8-7d963e9b4dc9
+        set srcintf "ORBIS1" "ORBIS2"
+        set dstintf "VLAN-3174" "Zone ADM"
+        set action accept
+        set srcaddr "ORBIS"
+        set dstaddr "ANTILLANA"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 104
+        set name "AC-ORBIS"
+        set uuid 3ea58976-f445-51ef-0821-bdd5f2801e76
+        set srcintf "VLAN-3174" "Zone ADM"
+        set dstintf "ORBIS1" "ORBIS2"
+        set action accept
+        set srcaddr "ANTILLANA"
+        set dstaddr "ORBIS"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 107
+        set name "↑ AC ↑"
+        set uuid 376cb458-f47d-51ef-2c50-427cf675d3f8
+        set srcintf "Zone ADM" "VLAN-3174"
+        set dstintf "STGO1" "STGO2"
+        set action accept
+        set srcaddr "ANTILLANA"
+        set dstaddr "SANTIAGO" "SW"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 109
+        set name "↓ AC ↓"
+        set uuid fff2bf10-f826-51ef-3206-960036833a94
+        set srcintf "STGO1" "STGO2"
+        set dstintf "Zone ADM" "VLAN-3174"
+        set action accept
+        set srcaddr "SANTIAGO"
+        set dstaddr "ANTILLANA"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 108
+        set name "SPNMobile"
+        set uuid 6c797868-fb79-51ef-3fea-95c290222cfe
+        set srcintf "virtual-wan-link"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "spnMobileServer"
+        set schedule "always"
+        set service "HTTPS" "HTTP" "HTTPSX"
+        set logtraffic all
+    next
+    edit 118
+        set name "Mobile VoIM"
+        set uuid 58a9d1dc-4ac2-51f0-42a5-b21bf4326268
+        set srcintf "virtual-wan-link"
+        set dstintf "Zone Servers"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "Servicios Mobile VOIM"
+        set schedule "always"
+        set service "sMobile VOIM"
+        set logtraffic all
+        set comments " (Copy of Servicios Mobile Central) (Copy of )"
+    next
+    edit 115
+        set name "Mobile VoIP"
+        set uuid cf18362a-3fb8-51f0-c33b-7f6134e68bba
+        set srcintf "virtual-wan-link"
+        set dstintf "Zone Servers"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "Servicios Mobile Server"
+        set schedule "always"
+        set service "sMobile Server"
+        set logtraffic all
+    next
+    edit 111
+        set name "VoIP | Internet"
+        set uuid be1c59ea-3fa5-51f0-f994-6cedc51312e7
+        set srcintf "Zone Servers"
+        set dstintf "virtual-wan-link"
+        set action accept
+        set srcaddr "VoIP address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set ssl-ssh-profile "certificate-inspection"
+        set logtraffic all
+        set nat enable
+    next
+    edit 112
+        set name "TIC | VoIP"
+        set uuid 16e4f492-3fa6-51f0-9a16-60edf43dd39f
+        set srcintf "Zone ADM"
+        set dstintf "Zone Servers"
+        set action accept
+        set srcaddr "TIC address"
+        set dstaddr "VoIP address"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 114
+        set name "VoIP | DNS"
+        set uuid e5922dd0-3fb2-51f0-16f5-89ef060439da
+        set srcintf "Zone Servers"
+        set dstintf "VLAN-3174"
+        set action accept
+        set srcaddr "VoIP address"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 113
+        set name "Network | ADM"
+        set uuid c7846918-3fab-51f0-982f-336ad01cd25a
+        set srcintf "Zone Network"
+        set dstintf "Zone Servers"
+        set action accept
+        set srcaddr "DSW address"
+        set dstaddr "VoIP address"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 116
+        set name "IPECS"
+        set uuid 6e1ba32a-4085-51f0-8e43-5f56c2176868
+        set srcintf "Zone Servers"
+        set dstintf "Zone Servers"
+        set action accept
+        set srcaddr "VoIP address"
+        set dstaddr "VoIP address"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+    edit 117
+        set name "Server | VoIP"
+        set uuid e126e0c4-4abb-51f0-2c7e-e11f973747c0
+        set srcintf "VLAN-3174"
+        set dstintf "Zone Servers"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "VoIP address"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+end
+
+FGT-ANTILLANA-100F (policy) #

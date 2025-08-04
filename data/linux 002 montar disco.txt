@@ -1,0 +1,61 @@
+/etc/smbcredentials
+
+
+cat ubackup.cred
+
+
+username=ubackup
+password=*****************
+domain=laantillana.local
+uid=acdadm
+gid=sapsys
+
+
+
+sudo mkdir -p /etc/smbcredentials
+sudo vim /etc/smbcredentials/ubackup.cred
+sudo chmod 600 /etc/smbcredentials/ubackup.cred
+sudo chown root:root /etc/smbcredentials/ubackup.cred
+
+sudo vim /etc/fstab
+  
+  
+UUID=1d1f3e9d-4525-4c01-969e-ac015043f3ae swap                 swap       defaults              0 0
+UUID=87f9b117-7040-4125-909d-e86ed455aa2a /                    xfs        defaults              1 1
+UUID=073a0ef7-a522-4274-90d8-6cdcadd33e11 /boot                xfs        defaults              1 2
+UUID=4ef31448-a8d0-4ab1-842e-97768ece18e5 /hana                xfs        defaults              1 2
+UUID=41c64ef5-aa93-46ed-a22b-bb650a45a606 /sapmnt              xfs        defaults              1 2
+UUID=f2aac11f-994c-4c02-bd72-66a1da6adbaa /usr/sap             xfs        defaults              1 2
+//172.16.4.41/Shared-Folders/Backup/SAP  /hana/backup  cifs  credentials=/etc/smbcredentials/ubackup.cred,vers=3.0,uid=acdadm,gid=sapsys,file_mode=0777,dir_mode=0777,nofail,iocharset=utf8  0  0
+#//172.16.4.41/Shared-Folders/Backup/SAP  /hana/backup  cifs  credentials=/etc/smbcredentials/ubackup.cred,file_mode=0777,dir_mode=0777 0 0
+~
+~
+
+
+
+
+QA
+sudo vi /etc/fstab
+//172.16.4.41/Shared-Folders/Backup/SAP  /hana/backup  cifs  credentials=/etc/smbcredentials/ubackup.cred,vers=3.0,uid=acdadm,gid=sapsys,file_mode=0777,dir_mode=0777,nofail,iocharset=utf8  0  0
+//172.16.4.41/Shared-Folders/Backup/SAP  /hana/backup  cifs  credentials=/etc/smbcredentials/ubackup.cred,vers=3.0,uid=acdadm,gid=sapsys,file_mode=0777,dir_mode=0777,nofail,iocharset=utf8  0  0
+
+
+montar disco
+sudo mount -t cifs -o credentials=/etc/smbcredentials/ubackup.cred,vers=3.0,domain=laantillana.local,uid=acqadm,gid=sapsys //172.16.4.41/Shared-Folders/Backup/SAP/HanaQA /hana/backup
+
+
+HanaDev
+sudo mount -t cifs -o credentials=/etc/smbcredentials/ubackup.cred,vers=3.0,domain=laantillana.local,uid=acdadm,gid=sapsys //172.16.4.41/Shared-Folders/Backup/SAP/HanaDev /hana/backup
+
+
+SAPQA:/usr/sap/HDB/HDB02/backup/data # l
+total 0
+drwxrwx--- 2 hdbadm sapsys 58 Jul  8 16:45 .
+drwxr-x--- 6 hdbadm sapsys 90 Aug 27  2023 ..
+lrwxrwxrwx 1 root   root   20 Jul  8 16:45 DB_HDB -> /hana/backup/DB_HDB/
+lrwxrwxrwx 1 root   root   28 Jul  8 16:45 DB_POSIBILIADB -> /hana/backup/DB_POSIBILIADB/
+lrwxrwxrwx 1 root   root   22 Jul  8 16:23 SYSTEMDB -> /hana/backup/SYSTEMDB/
+
+
+
+sudo chmod 777 /hana/backup/

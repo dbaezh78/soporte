@@ -1,0 +1,31 @@
+Private Sub Worksheet_Change(ByVal Target As Range)
+    Dim cell As Range
+    Dim rowNum As Integer
+    
+    ' Primer grupo (columnas C) - Cantor y Cantor Acordes
+    If Not Intersect(Target, Range("C3:C103")) Is Nothing Then
+        For Each cell In Intersect(Target, Range("C3:C103"))
+            rowNum = cell.Row
+            If rowNum >= 3 And rowNum <= 103 Then
+                ' Cantor: filas desde C163 (160+3) hasta C263 (160+103)
+                Rows(rowNum + 160).Hidden = (cell.Value = "") ' C163-C263
+                ' CantorAcordes: filas desde C269 (266+3) hasta C369 (266+103)
+                Rows(rowNum + 266).Hidden = (cell.Value = "") ' C269-C369
+            End If
+        Next cell
+    End If
+    
+    ' Segundo grupo (columnas N) - Asamblea y Asamblea Acordes
+    If Not Intersect(Target, Range("N3:N103")) Is Nothing Then
+        For Each cell In Intersect(Target, Range("N3:N103"))
+            rowNum = cell.Row
+            If rowNum >= 3 And rowNum <= 103 Then
+                ' Asamblea: filas desde C375 (372+3) hasta C475 (372+103)
+                Rows(rowNum + 372).Hidden = (cell.Value = "") ' C375-C475
+                ' AsambleaAcordes: filas desde C478 (475+3) hasta C578 (475+103)
+                Rows(rowNum + 475).Hidden = (cell.Value = "") ' C478-C578
+            End If
+        Next cell
+    End If
+End Sub
+

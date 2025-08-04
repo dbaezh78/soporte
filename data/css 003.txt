@@ -1,0 +1,16 @@
+330 cssgral
+.canto-column {
+    /* width: 100%; */
+    box-sizing: border-box;
+}
+
+
+346 cssgral
+
+@media (min-width: 992px) {
+    .canto-column {
+        /* width: calc(50% - 20px); */
+    }
+}
+
+

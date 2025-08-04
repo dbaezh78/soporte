@@ -1,9 +1,42 @@
 #generar.bat
+ac0001.txt
+cmd001.txt
+Comandos Fortigate 001.txt
+css 001.txt
+css 002.txt
+css 003.txt
+css 004 - variables.txt
 Estilo del enlace original.txt
+excel 001.txt
+excel vs 001.txt
 file.txt
 Fortigate01.txt
 Fortigate02.txt
+Fortigate03.txt
+Fortigate04.txt
+Fortigate05.txt
+Fortigate06.txt
+Fortigate07.txt
+gpupdate 001.txt
+hana.txt
+html001.txt
+html002.txt
+html003.txt
+js 001 colapso.txt
+linkiando una carpeta linux.txt
+linux 001.txt
+linux 002 montar disco.txt
+linux 003.txt
+linux Linkiando carpeta.txt
+log dc.txt
 mail.txt
+new 291.txt
+numeros001.txt
+OneDrive error 001.txt
 OneDrive error.txt
 pass01.txt
+powershell001.txt
+regedit 001.txt
+SAP montando disco.txt
 tracerrouteForti.txt
+visualbasic excel01.txt
