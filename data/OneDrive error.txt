@@ -1,0 +1,10 @@
+\\lediaz\c$\Users\ldperez\AppData\Local\Packages
+
+cabiar nombre a carpeta
+Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy
+
+
+este es la carpeta de Onedrive que hay que cambiar para corregir el error
+
+la ubicacion de la carpeta es 
+C:\Users\ldperez\AppData\Local\Packages

@@ -1,0 +1,21 @@
+You chose to delegate control of objects
+in the following Active Directory folder:
+
+    laantillana.local/
+
+The groups, users, or computers to which you
+have given control are:
+
+    Soporte (LAANTILLANA\Soporte)
+
+You chose to delegate the following tasks:
+
+    Reset user passwords and force password change at next logon
+    Read all user information
+    Join a computer to the domain
+    Read all inetOrgPerson information
+
+
+
+	 ccanario@antillanacomercial.com
+smtp:ccanario@antillanacomercial.com

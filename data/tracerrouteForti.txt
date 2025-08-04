@@ -1,0 +1,22 @@
+FGT-ANTILLANA-100F # exe traceroute 172.16.18.1
+traceroute to 172.16.18.1 (172.16.18.1), 32 hops max, 3 probe packets per hop, 84 byte packets
+ 1  * * *
+^C 2  *
+FGT-ANTILLANA-100F # get router info routing-table details 172.16.18.1
+
+Routing table for VRF=0
+Routing entry for 172.16.18.0/24
+  Known via "static", distance 15, metric 0
+    via ORBIS2 tunnel 190.167.141.152 vrf 0, tun_id
+
+Routing entry for 172.16.18.0/24
+  Known via "static", distance 20, metric 0
+    directly connected, ORBIS2
+
+Routing entry for 172.16.18.0/24
+  Known via "static", distance 10, metric 0, best
+  * directly connected, ORBIS1
+
+
+
+FGT-ANTILLANA-100F #

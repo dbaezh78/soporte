@@ -1,0 +1,52 @@
+TILLANA-100F (static) # edit "24"
+
+FGT-ANTILLANA-100F (24) # show
+config router static
+    edit 24
+        set status disable
+        set dst 172.16.23.1 255.255.255.255
+        set device "STGO1"
+    next
+end
+
+FGT-ANTILLANA-100F (24) # abort
+
+FGT-ANTILLANA-100F # 
+FGT-ANTILLANA-100F # 
+FGT-ANTILLANA-100F # 
+FGT-ANTILLANA-100F # 
+
+
+
+FGT-ANTILLANA-100F (static) # edit "19"
+
+FGT-ANTILLANA-100F (19) # show
+config router static
+    edit 19
+        set device "STGO1"
+        set dstaddr "SANTIAGO"
+    next
+end
+
+FGT-ANTILLANA-100F (19) # 
+
+
+FGT-ANTILLANA-100F (static) # edit "25"
+
+FGT-ANTILLANA-100F (25) # show
+config router static
+    edit 25
+        set distance 20
+        set device "STGO2"
+        set dstaddr "SANTIAGO"
+    next
+end
+
+FGT-ANTILLANA-100F (25) # 
+
+
+
+
+
+
+
