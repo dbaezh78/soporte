@@ -1,7 +1,8 @@
 #generar.bat
 Estilo del enlace original.txt
 file.txt
-forti01.txt
+Fortigate01.txt
+Fortigate02.txt
 mail.txt
 OneDrive error.txt
 pass01.txt

@@ -8,23 +8,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>Buscador de archivos TXT</h1>
-        <p>Selecciona los archivos y busca por su contenido.</p>
+        <a href="/soporte/"> <b>dbaez</b>  </a>
+        <p>Busca por el contenido de tus archivos de textos</p>
         
-        <div class="file-list-section">
-            <h3>Archivos disponibles:</h3>
-            <div id="fileListContainer" class="file-list-container">
-                </div>
-        </div>
-
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="Ingresa el texto a buscar...">
+        </div><div class="center">
             <button id="searchButton">Buscar</button>
+            <button id="toggleFileListButton">Buscan en...</button>
         </div>
         
+        
+
+        <div id="fileListContainer" class="file-list-container hidden">
+            <h3>Archivos disponibles:</h3>
+            </div>
+
         <div id="results" class="results-container">
             <p id="noResults" class="hidden">No se encontraron archivos que coincidan.</p>
-            <p id="noFilesSelected" class="hidden">Por favor, selecciona al menos un archivo para buscar.</p>
         </div>
     </div>
     <script src="script.js"></script>

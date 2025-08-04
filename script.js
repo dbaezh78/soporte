@@ -4,7 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultsContainer = document.getElementById('results');
     const noResultsMessage = document.getElementById('noResults');
     const fileListContainer = document.getElementById('fileListContainer');
+    const toggleFileListButton = document.getElementById('toggleFileListButton');
     let fileList = []; 
+
+    // Evento para mostrar/ocultar la lista de archivos
+    toggleFileListButton.addEventListener('click', () => {
+        fileListContainer.classList.toggle('hidden');
+    });
 
     async function loadFileList() {
         try {
@@ -26,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderFileList() {
-        fileListContainer.innerHTML = '';
+        fileListContainer.innerHTML = '<h3>Archivos disponibles:</h3>';
         fileList.forEach(fileName => {
             const fileItem = document.createElement('label');
             fileItem.classList.add('file-item');
@@ -58,20 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
         noResultsMessage.classList.add('hidden');
         let filesToSearch = [];
 
-        // Obtener los archivos seleccionados
         const selectedCheckboxes = document.querySelectorAll('#fileListContainer input[type="checkbox"]:checked');
 
-        // Lógica de búsqueda mejorada
         if (selectedCheckboxes.length > 0) {
-            // Si hay archivos marcados, buscar solo en ellos
             filesToSearch = Array.from(selectedCheckboxes).map(cb => cb.value);
         } else {
-            // Si no hay archivos marcados, buscar en todos los archivos disponibles
             filesToSearch = fileList;
         }
         
         if (searchTerm === '') {
-            displaySelectedFilesContent(filesToSearch);
+            displaySelectedFilesContent(filesToSearch, searchTerm);
             return;
         }
 
@@ -85,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const content = await response.text();
                 
                 if (content.toLowerCase().includes(searchTerm)) {
-                    displayFileResult(fileName, content);
+                    displayFileResult(fileName, content, searchTerm);
                     foundFilesCount++;
                 }
             } catch (error) {
@@ -106,14 +108,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     throw new Error(`Error al cargar el archivo ${fileName}: ${response.statusText}`);
                 }
                 const content = await response.text();
-                displayFileResult(fileName, content);
+                displayFileResult(fileName, content, '');
             } catch (error) {
                 console.error(error);
             }
         }
     }
     
-    function displayFileResult(fileName, content) {
+    function displayFileResult(fileName, content, searchTerm) {
         const fileCard = document.createElement('div');
         fileCard.classList.add('file-card');
 
@@ -121,8 +123,17 @@ document.addEventListener('DOMContentLoaded', () => {
         title.textContent = fileName;
 
         const contentPreview = document.createElement('p');
-        const previewText = content.substring(0, 300) + (content.length > 300 ? '...' : '');
-        contentPreview.textContent = previewText;
+
+        // Lógica de resaltado
+        if (searchTerm && content.toLowerCase().includes(searchTerm)) {
+            // Creamos una expresión regular con la palabra a buscar, ignorando mayúsculas y minúsculas
+            const regex = new RegExp(searchTerm, 'gi');
+            // Reemplazamos la coincidencia con la misma palabra envuelta en un span para resaltarla
+            const highlightedText = content.replace(regex, `<span class="highlight">$&</span>`);
+            contentPreview.innerHTML = highlightedText.substring(0, 300) + (content.length > 300 ? '...' : '');
+        } else {
+            contentPreview.textContent = content.substring(0, 300) + (content.length > 300 ? '...' : '');
+        }
 
         fileCard.appendChild(title);
         fileCard.appendChild(contentPreview);

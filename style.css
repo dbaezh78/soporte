@@ -4,9 +4,18 @@ body {
     color: #333;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     margin: 0;
+}
+
+a {
+    text-decoration: none;
+    }
+
+b {
+    font-size: 4rem;
+    color: dodgerblue;
 }
 
 .container {
@@ -27,7 +36,10 @@ p {
     color: #666;
 }
 
-.file-list-section {
+.file-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-top: 1.5rem;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -35,15 +47,9 @@ p {
     text-align: left;
 }
 
-.file-list-section h3 {
+.file-list-container h3 {
     margin-top: 0;
     color: #444;
-}
-
-.file-list-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }
 
 .file-item {
@@ -58,6 +64,30 @@ p {
     cursor: pointer;
 }
 
+#toggleFileListButton {
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    color: #3c4043;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+#toggleFileListButton:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    color: #202124;
+}
+
 .search-box {
     display: flex;
     justify-content: center;
@@ -69,23 +99,32 @@ p {
     width: 70%;
     padding: 0.8rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 25px;
     font-size: 1rem;
 }
 
 #searchButton {
-    padding: 0.8rem 1.5rem;
-    border: none;
-    background-color: #007BFF;
-    color: #fff;
-    border-radius: 5px;
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    color: #3c4043;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
+    user-select: none;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }
 
 #searchButton:hover {
-    background-color: #0056b3;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    color: #202124;
 }
 
 .results-container {
@@ -114,6 +153,16 @@ p {
     white-space: pre-wrap;
 }
 
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
 .hidden {
     display: none;
+}
+
+
+.center {
+    align-items: center;
 }
