@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# find HDBSettings.sh
+relpath=`dirname $0`
+abspath=`cd $relpath ; pwd`
+HDB_SETTINGS=$abspath/HDBSettings.sh
+
+# pass arguments only to hdbadmin
+args="$@"
+while [ $# -gt 0 ] ; do shift ; done
+
+if [ ! -f $HDB_SETTINGS ] ; then
+    echo "ERROR: ${HDB_SETTINGS} not found"
+    exit 1
+fi
+. $HDB_SETTINGS
+
+
+if [ -z "$DISPLAY" ] ; then
+    echo "Environment variable DISPLAY is not set, cannot start HDBAdmin"
+    exit 1
+fi
+echo "Starting HDBAdmin on display $DISPLAY, please wait."
+python -c "import hdbadmin ; hdbadmin.main()" $args

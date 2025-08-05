@@ -1,0 +1,69 @@
+#Procedimiento para iniciar SAP
+
+# SAPQA:~ # su - hdbadm
+# hdbadm@SAPQA:/usr/sap/HDB/HDB02> su - hdbadm
+# Entramos en el modo ADM con el siguiente comadno "su - hdbadm", como muestra debajo.
+
+su - hdbadm
+
+# Luego colocamos la contraseña para QA es la siguientes "Acq12345"
+# Password:
+
+# Luego iniciamos la base de datos de Hana "HDB" con el siguiente comando "HDB start"
+# La cual tiene que estar en la siguiente carpeta "/usr/sap/HDB/HDB02"
+# hdbadm@SAPQA:/usr/sap/HDB/HDB02> HDB start
+
+HDB start
+
+#
+#	StartService
+#	Impromptu CCC initialization by 'rscpCInit'.
+#	  See SAP note 1266393.
+#	OK
+#	OK
+#	Starting instance using: /usr/sap/HDB/SYS/exe/hdb/sapcontrol -prot NI_HTTP -nr 02 -function StartWait 2700 2
+#
+#
+# 05.08.2024 12:14:45
+#	Start
+#	OK
+
+# hdbadm@SAPQA:/usr/sap/HDB/HDB02> cd /
+# hdbadm@SAPQA:/> exit
+
+# Entonces salimos con "exit"
+
+exit
+
+# logout
+# hdbadm@SAPQA:/usr/sap/HDB/HDB02> cd /
+
+# Entonces salimos con "exit" nuevamente del usuario hdbadm para poder entrar en el usuario acqadm para iniciar con startsap.
+# hdbadm@SAPQA:/> exit
+
+exit
+
+# logout
+
+# Luego que salgamos como comentamos anteriormente, entraremos con el usuario "acqadm" usando el privilegio su.
+# SAPQA:~ # su - acqadm
+
+su - acqadm
+
+# ahora iniciamos el SAP con el siguiente comando startsap
+# SAPQA:acqadm 51> startsap
+
+startsap
+
+# Checking HDB Database
+# Database is running
+# -------------------------------------------
+# Starting Startup Agent sapstartsrv
+# OK
+# Instance Service on host SAPQA started
+# -------------------------------------------
+# starting SAP Instance ASCS01
+# Startup-Log is written to /home/acqadm/startsap_ASCS01.log
+# -------------------------------------------
+# /usr/sap/ACQ/ASCS01/exe/sapcontrol -prot NI_HTTP -nr 01 -function Start
+

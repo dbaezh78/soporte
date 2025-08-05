@@ -1,0 +1,52 @@
+#!/bin/bash
+
+while true; do
+    clear
+    echo "ANTILLANA COMERCIAL"
+    echo "-------------------------------------------------------"
+    echo "Bienvenido, este es un Scripts para limpiar algunos logs"
+    echo ""
+
+    # Menú para establecer los días
+    read -p "Por favor, introduce el número de días para la limpieza de logs: " days
+    echo ""
+    # Menú de confirmación
+    echo "Este script eliminará archivos de logs mayores de $days días."
+    echo ""
+    read -p "¿Estás de acuerdo en continuar? (S/n): " choice
+
+    choice=$(echo "$choice" | tr '[:upper:]' '[:lower:]')  # Convertir a minúsculas
+
+    if [[ $choice == "s" || $choice == "si" ]]; then
+        # Primera línea
+		
+        find /hana/shared/HDB/HDB02/backup/log/SYSTEMDB -mtime +$days -exec rm -v {} \;
+
+        # Segunda línea
+        find /hana/shared/HDB/HDB02/backup/log/DB_POSIBILIADB/ -mtime +$days -exec rm -v {} \;
+		
+		# Tercera línea
+        find /hana/shared/HDB/HDB02/backup/log/DB_HDB/ -mtime +$days -exec rm -v {} \;
+		
+
+	df -h
+
+        echo "Limpieza de logs completada."
+    elif [[ $choice == "n" || $choice == "no" ]]; then
+        echo ""
+        echo "No se han realizado cambios. Gracias por considerarlo."
+    else
+        echo "Opción no válida. No se han realizado cambios."
+    fi
+
+    read -p "¿Deseas realizar otra limpieza con un número de días diferente? (S/n): " another_choice
+
+    another_choice=$(echo "$another_choice" | tr '[:upper:]' '[:lower:]')  # Convertir a minúsculas
+
+    if [[ $another_choice != "s" && $another_choice != "si" ]]; then
+        break
+    fi
+done
+
+echo "¡Gracias por usar el script de limpieza de logs!"
+

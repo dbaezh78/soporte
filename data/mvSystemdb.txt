@@ -1,0 +1,7 @@
+#Creando variable para fecha
+Fecha=$(date +"%Y%m%d%I%M%S")
+
+# Comprimiendo Archivos respaldados
+tar -czvf /mnt/BANAS01/SYSTEMDB/SYSTEMDB_"$Fecha".tar.gz /hana/shared/NDB/HDB00/backup/log/SYSTEMDB/
+
+

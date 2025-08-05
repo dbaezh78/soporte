@@ -1,0 +1,62 @@
+#!/bin/csh
+
+#set verbose
+
+#
+# evaluate SID == SAPSYSTEMNAME, if not found in environment
+#
+set SID=""
+if ( ! $?SAPSYSTEMNAME ) then
+    set usr=`whoami`
+
+    set res=`expr match "$usr" "[a-z][a-z0-9][a-z0-9]adm" != 6 >/dev/null`
+    if ( "$res" == 0 ) then
+        echo "HDB script requires <sid>adm user, but got '$usr'"
+    else
+        setenv SAPSYSTEMNAME `expr substr "$usr" 1 3 | tr "[:lower:]" "[:upper:]"`
+        set SID=$SAPSYSTEMNAME
+    endif
+else
+    set SID=$SAPSYSTEMNAME
+endif
+
+
+#
+# get local virtual host name out of sapservices. take only the first host name found if more given
+# ignore lines commented out
+#
+set inputfile=/usr/sap/sapservices
+set VTHOST=""
+set VTHOST=`grep "^[  ]*[^#].*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_"  $inputfile | sed "s:.*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_\([^ ]*\).*:\2:" | head -1`
+
+if ( "x$VTHOST" == "x" ) then
+   echo "HDBSettings.csh: Host name not found out of $inputfile, defaulting to local physical host"
+   set VTHOST=`hostname`
+endif
+
+
+source /usr/sap/$SAPSYSTEMNAME/HDB[0-9][0-9]/hdbenv.csh "$VTHOST" "$*"
+
+set _hdbenv_retvalue=$status
+
+if ( -e $DIR_INSTANCE/streaming/STREAMING.csh ) source $DIR_INSTANCE/streaming/STREAMING.csh
+
+if ( -e $DIR_INSTANCE/es/ES.csh ) source $DIR_INSTANCE/es/ES.csh
+
+if ( -e $DIR_INSTANCE/ets/ETS.csh ) source $DIR_INSTANCE/ets/ETS.csh
+
+if ( -e $DIR_INSTANCE/rdsync/RDSYNC.csh ) source $DIR_INSTANCE/rdsync/RDSYNC.csh
+
+if ( -e "$DIR_INSTANCE/../xs/bin" ) then
+        setenv XSPATH `readlink -f "$DIR_INSTANCE/../xs"`
+        setenv PATH "$XSPATH/bin:$PATH"
+endif
+
+if ( -e "/usr/sap/${SID}/lss/exe" ) then
+        setenv LSS_HOME `readlink -f "/usr/sap/${SID}/lss/exe/.."`
+        setenv LSS_LOCAL_PATH "/usr/sap/${SID}/lss/local"
+        set LSSPATH=`readlink -f "/usr/sap/${SID}/lss/exe/"`
+        setenv PATH "${LSSPATH}:${PATH}"
+endif
+
+exit $_hdbenv_retvalue

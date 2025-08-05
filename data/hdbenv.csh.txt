@@ -1,0 +1,187 @@
+#!/bin/csh
+# @(#) $Id$ SAP
+# SAP R/3 Environment - please do not edit
+
+set cmd=`basename -- "$0"`
+
+#
+# these 2 lines may be edited b the installer program
+#
+setenv DIR_INSTANCE /usr/sap/NDB/HDB00
+set DEFAULTHOSTNAME=sdophana
+
+
+
+
+#
+# guess SAPSYSTEMNAME == SID, if not yet defined
+#
+if ( ! $?SAPSYSTEMNAME ) then
+    set siddir=`dirname "$DIR_INSTANCE"`
+    setenv SAPSYSTEMNAME `basename "$siddir"`
+endif
+
+#
+# Evaluate Virtual Hostname: given as $1, or found in sapservices, or defaulted to 'physical' hostname
+#
+# the next block assures that the variable VTHOSTNAME 'virtual host name' be defined
+set VTHOSTNAME=""
+if ( $# != 0 ) then
+    set VTHOSTNAME="$1"
+    shift
+endif
+if ( "x$VTHOSTNAME" == "x" ) then
+    #
+    # get local virtual host name out of sapservices. take only the first host name found if more given
+    # ignore lines commented out
+    #
+    set SID=$SAPSYSTEMNAME
+    set VTHOSTNAME=`grep "^[  ]*[^#].*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_"  /usr/sap/sapservices | sed "s:.*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_\([^ ]*\).*:\2:" | head -1`
+    if ( "x$VTHOSTNAME" == "x") then
+
+        set VTHOSTNAME=`grep "^/usr/sap/waitforhdb.*[#].*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_"  /usr/sap/sapservices | sed "s:.*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_\([^ ]*\).*:\2:" | head -1`
+    endif
+
+    if ( "x$VTHOSTNAME" == "x" ) then
+         echo "hdbenv.csh: Host name not found out of /usr/sap/sapservices, defaulting to local physical host"
+         set VTHOSTNAME=`hostname`
+    endif
+endif
+
+#
+# check for consistency between an already defined SAP_RETRIEVAL_PATH and the VTHOSTNAME evaluated before
+#
+if ( $?SAP_RETRIEVAL_PATH ) then
+    if ( "$VTHOSTNAME" != "`basename $SAP_RETRIEVAL_PATH`" ) then
+        echo "hdbenv.csh: Hostname defined in SAP_RETRIEVAL_PATH=$SAP_RETRIEVAL_PATH differs from host name defined in in command line or sapservices."
+    endif
+endif
+
+if ( ! -e $DIR_INSTANCE/$VTHOSTNAME ) then
+  echo "hdbenv.csh: Wrong host: '$VTHOSTNAME', source ~/hdbenv.csh [<virt hostname>]"
+  exit -1
+endif
+
+#
+# define prompt string
+#
+set prompt="`hostname`:HDB:$LOGNAME %~ \!> "
+
+#
+# define some nice aliases
+#
+alias cdexe 'cd /usr/sap/"$SAPSYSTEMNAME"/SYS/exe/hdb'
+alias cdins 'cd /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/install'
+alias cdhdb 'cd $DIR_INSTANCE'
+alias cdpy 'cd $DIR_INSTANCE/exe/python_support'
+alias cdtrace 'cd $DIR_INSTANCE/$VTHOSTNAME/trace'
+alias cdwork 'cd $DIR_INSTANCE/$VTHOSTNAME/work'
+
+alias cdvsi 'cd /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi'
+alias vsigui 'java -jar $DIR_SYSEXE/vsi.jar -cfg /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties'
+alias vsiinfo 'java -jar $DIR_SYSEXE/vsi.jar info -cfg /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties'
+alias vsioff='mv /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.backup_$(date +%F_%R); touch /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties'
+alias vsitest 'java -jar $DIR_SYSEXE/vsi.jar scanbytes -cfg /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties EICAR'
+alias vsiscan 'java -jar $DIR_SYSEXE/vsi.jar scan -cfg /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties'
+
+# change to HDB instance dir
+cd $DIR_INSTANCE
+
+#---------------------HDBSettings.sh----------------------------
+
+#
+# configuration
+#
+setenv DIR_EXECUTABLE ${DIR_INSTANCE}/exe
+setenv SAP_RETRIEVAL_PATH $DIR_INSTANCE/$VTHOSTNAME
+#setenv DAT_BIN_DIR $DIR_EXECUTABLE/DAT
+setenv DAT_BIN_DIR $DIR_EXECUTABLE/dat_bin_dir
+
+# SNC Settings
+setenv SECUDIR ${SAP_RETRIEVAL_PATH}/sec
+
+set PLATFORM=`uname -m`
+
+#
+# create settings from configuration
+#
+setenv PATH ${SAP_RETRIEVAL_PATH}:${DIR_INSTANCE}:${DIR_EXECUTABLE}:${DIR_EXECUTABLE}/mdc:${DIR_EXECUTABLE}/Python/bin:${DAT_BIN_DIR}:${DIR_EXECUTABLE}/Apache/bin:${PATH}
+setenv _FEDERATION_LIB_PATH /usr/sap/${SAPSYSTEMNAME}/SYS/global/hdb/federation
+if ( ${?LD_LIBRARY_PATH} ) then
+    setenv LD_LIBRARY_PATH ${DIR_EXECUTABLE}:${DIR_EXECUTABLE}/Python/lib:${DAT_BIN_DIR}:${DIR_EXECUTABLE}/llvm/lib:${DIR_EXECUTABLE}/filter:${DIR_EXECUTABLE}/plugins/afl:${DIR_EXECUTABLE}/plugins/lcapps:${DIR_EXECUTABLE}/plugins/repository:${DIR_EXECUTABLE}/plugins/epmmds:${_FEDERATION_LIB_PATH}:/usr/sap/${SAPSYSTEMNAME}/SYS/global/hdb/plugins/3rd_party_libs:${LD_LIBRARY_PATH}
+    if ( "$PLATFORM" == "ppc64") then
+      setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/opt/ibmcmp/lib64
+    endif
+else
+  setenv LD_LIBRARY_PATH ${DIR_EXECUTABLE}:${DIR_EXECUTABLE}/Python/lib:${DAT_BIN_DIR}:${DIR_EXECUTABLE}/llvm/lib:${DIR_EXECUTABLE}/filter:${DIR_EXECUTABLE}/plugins/afl:${DIR_EXECUTABLE}/plugins/lcapps:${DIR_EXECUTABLE}/plugins/repository:${DIR_EXECUTABLE}/plugins/epmmds:${_FEDERATION_LIB_PATH}:/usr/sap/${SAPSYSTEMNAME}/SYS/global/hdb/plugins/3rd_party_libs
+    if ( "$PLATFORM" == "ppc64") then
+      setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/opt/ibmcmp/lib64
+    endif
+endif
+
+#
+# Setup KRB5 use
+#
+setenv PATH ${DIR_EXECUTABLE}/krb5/bin:${DIR_EXECUTABLE}/krb5/sbin:${PATH}
+setenv LD_LIBRARY_PATH ${DIR_EXECUTABLE}/krb5/lib/krb5/plugins/preauth:${DIR_EXECUTABLE}/krb5/lib:${LD_LIBRARY_PATH}
+
+if ( ! ${?KRB5_CONFIG} && -e "${HOME}/etc/krb5_hdb.conf" ) then
+    setenv KRB5_CONFIG ${HOME}/etc/krb5_hdb.conf
+endif
+
+if ( ! ${?KRB5_KTNAME} && -e "${HOME}/etc/krb5_hdb.keytab" ) then
+    setenv KRB5_KTNAME ${HOME}/etc/krb5_hdb.keytab
+endif
+
+if ( ! ${?KRB5_CLIENT_KTNAME} && -e "${HOME}/etc/krb5_host.keytab" ) then
+    setenv KRB5_CLIENT_KTNAME ${HOME}/etc/krb5_host.keytab
+endif
+
+#######
+
+setenv PYTHONPATH /usr/sap/${SAPSYSTEMNAME}/SYS/global/hdb/custom/python_support:${DIR_EXECUTABLE}/python_support:${SAP_RETRIEVAL_PATH}:${DIR_EXECUTABLE}:${DIR_EXECUTABLE}/testscripts:${DIR_EXECUTABLE}/Python/lib/python2.7
+
+setenv PYTHONHOME ${DIR_EXECUTABLE}/Python
+
+# Multi-threading concept of OpenMP is not compatible with HANA multi-threading concept, but is used by some 3rd party libs: deactivate it
+setenv OMP_NUM_THREADS 1
+
+#
+# umask
+#
+
+umask 027
+
+# Force symbol resolution at load time, except for ppc64 where it is broken
+if ( "$PLATFORM" != "ppc64") then
+    setenv LD_BIND_NOW 1
+endif
+
+#
+# execute remaining arguments
+#
+set result=0
+if ( ( "$cmd" == HDBSettings.csh || "$cmd" == hdbenv.csh ) ) then
+  if ( ! $?HDBSettings_ALREADY ) then
+    set HDBSettings_ALREADY=$$
+  else
+    if ( $HDBSettings_ALREADY == $$ ) then
+      if ( "x$*" != "x" ) then
+        if ( "x$1" == "x-cd-hdb" ) then
+          shift
+          cd ${SAP_RETRIEVAL_PATH}
+          set result=$status
+        endif
+        if ( "x$1" == "x-start" ) then
+          shift
+          $* >& /dev/null &
+          set result=$status
+        else
+          $*
+          set result=$status
+        endif
+      endif
+    endif
+  endif
+endif
+set status=$result
