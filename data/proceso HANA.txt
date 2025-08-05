@@ -1,0 +1,103 @@
+Last login: Thu Aug 29 22:34:42 2024 from 172.16.4.237
+SAPHANA:~ # su - hdbadm
+hdbadm@SAPHANA:/usr/sap/HDB/HDB02> HDB status
+Usage: /usr/sap/HDB/HDB02/HDB { start|stop|reconf|restart|version|info|proc|admin|kill|kill-<sig>|term }
+  kill or kill-9 should never be used in productive environment!
+hdbadm@SAPHANA:/usr/sap/HDB/HDB02> HDB start
+
+
+StartService
+Impromptu CCC initialization by 'rscpCInit'.
+  See SAP note 1266393.
+OK
+OK
+Starting instance using: /usr/sap/HDB/SYS/exe/hdb/sapcontrol -prot NI_HTTP -nr 02 -function StartWait 2700 2
+
+
+30.08.2024 12:37:37
+Start
+OK
+
+30.08.2024 12:39:35
+StartWait
+OK
+
+*****************************************************
+* #Luego se inicia el proceso con el usuario acpadm	*
+* usamos la contraseña: Acp12345						*
+*****************************************************
+hdbadm@SAPHANA:/usr/sap/HDB/HDB02> su - acpadm
+Password:
+
+*****************************************************
+* #Luego iniciamos el servicios de SAP con startsap *
+*****************************************************
+
+SAPHANA:acpadm 54> startsap
+Checking HDB Database
+Database is running
+-------------------------------------------
+Starting Startup Agent sapstartsrv
+OK
+Instance Service on host SAPHANA started
+-------------------------------------------
+starting SAP Instance ASCS01
+Startup-Log is written to /home/acpadm/startsap_ASCS01.log
+-------------------------------------------
+/usr/sap/ACP/ASCS01/exe/sapcontrol -prot NI_HTTP -nr 01 -function Start
+Instance on host SAPHANA started
+Starting Startup Agent sapstartsrv
+OK
+Instance Service on host SAPHANA started
+-------------------------------------------
+starting SAP Instance D00
+Startup-Log is written to /home/acpadm/startsap_D00.log
+-------------------------------------------
+/usr/sap/ACP/D00/exe/sapcontrol -prot NI_HTTP -nr 00 -function Start
+
+
+
+********************************************************************************************************
+
+Ricoh123456
+
+
+C:\Program Files\sap\hdbstudio
+
+select max(STCEG) "ULT. NCF" from VBRK
+ where BUKRS = '5530'
+   and STCEG like 'B01%'
+
+* POSIBILIA
+
+Hana Studio
+
+172.16.4.13
+172.16.4.13:30215
+PRD (Produccion)
+HDB
+Acp12345
+
+172.16.4.11
+QAS (Calidad)
+HDB
+Acq12345
+
+172.16.4.12
+DEV (Desarrollo)
+HDB
+Acd12345
+
+
+check user
+saphanadb
+
+saphana:4302
+
+
+nimbox
+Nimbox!.3000
+
+
+usuario:	POSIBILIA
+contraseña:	Lacsa2024*d

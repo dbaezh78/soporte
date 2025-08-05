@@ -1,0 +1,91 @@
+#!/bin/sh
+
+# support korn shell
+[ -n "$KSH_VERSION" ] && alias local='typeset'
+
+# using a function here avoids having too much shell variables defined outside and avoids destroying already defines ones.
+
+main() {
+    local inputfile usr doexit VTHOST SID
+
+    #
+    # evaluate SID = SAPSYSTEMNAME, if not found in environment
+    #
+    if [ "x$SAPSYSTEMNAME" = "x" ]; then
+        usr=$(whoami)
+        if expr match ${usr} "[a-z][a-z0-9][a-z0-9]adm" != 6 >/dev/null ; then
+            echo "HDB script requires <sid>adm user, but got '${usr}'"
+            return 1
+        fi
+        SAPSYSTEMNAME=`expr substr "$usr" 1 3 | tr "[:lower:]" "[:upper:]"`
+        export SAPSYSTEMNAME
+    fi
+    SID=$SAPSYSTEMNAME
+
+
+    #
+    # get local virtual host name out of sapservices. take only the first host name found if more given
+    # ignore lines commented out
+    #
+    inputfile=/usr/sap/sapservices
+    VTHOST=`grep "^[  ]*[^#].*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_"  $inputfile | sed "s:.*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_\([^ ]*\).*:\2:" | head -1`
+
+    if [ -z "$VTHOST" ]
+    then
+       echo "HDBSettings.sh: Host name not found out of $inputfile, defaulting to local physical host" >&2
+       VTHOST=`hostname`
+    fi
+
+    if [ "x$BASH_SOURCE" = "x" ]; then
+        _SCRIPT_DIR=`readlink -f /usr/sap/${SID}/HDB[0-9][0-9]`
+    else
+        _SCRIPT_DIR=`dirname $BASH_SOURCE`
+    fi
+
+    _HDBENV_ARG_HOST=$VTHOST
+
+    if [ -f $_SCRIPT_DIR/hdbenv.sh ]; then
+        . $_SCRIPT_DIR/hdbenv.sh "$VTHOST" "$@"
+    else
+        . ~/hdbenv.sh "$VTHOST" "$@"
+    fi
+    _hdbenv_retvalue=$?
+
+    if [ -f $_SCRIPT_DIR/streaming/STREAMING.sh ]; then
+        . $_SCRIPT_DIR/streaming/STREAMING.sh
+    fi
+ 
+    if [ -f $_SCRIPT_DIR/es/ES.sh ]; then
+        . $_SCRIPT_DIR/es/ES.sh
+    fi
+
+    if [ -f $_SCRIPT_DIR/ets/ETS.sh ]; then
+        . $_SCRIPT_DIR/ets/ETS.sh
+    fi
+
+    if [ -f $_SCRIPT_DIR/rdsync/RDSYNC.sh ]; then
+        . $_SCRIPT_DIR/rdsync/RDSYNC.sh
+    fi
+
+    if [ -d $_SCRIPT_DIR/../xs/bin ]; then
+        export XSPATH=`readlink -f "$_SCRIPT_DIR/../xs"`
+        export PATH="${XSPATH}/bin:${PATH:-}"
+    fi
+
+    if [ -d "/usr/sap/${SID}/lss/exe" ]; then
+        export LSS_HOME=`readlink -f "/usr/sap/${SID}/lss/exe/../"`
+        export LSS_LOCAL_PATH="/usr/sap/${SID}/lss/local"
+        LSSPATH=`readlink -f "/usr/sap/${SID}/lss/exe/"`
+        export PATH="${LSSPATH}:${PATH:-}"
+    fi
+
+    return $_hdbenv_retvalue
+}
+
+if [ "$__HDBSETTINGS_ALREADY_SOURCED" != "1" ]; then
+    __HDBSETTINGS_ALREADY_SOURCED=1
+    main "$@"
+else
+    # would otherwise be overwritten by .sapenv.sh if login shell is bash
+    alias cdexe='cd $DIR_SYSEXE'
+fi

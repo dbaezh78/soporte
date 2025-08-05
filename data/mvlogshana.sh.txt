@@ -1,0 +1,3 @@
+# Con esta linea de comando vamos a mover los log antes de que se haga el respaldo, para que pueda encontrar el espacio correspondiente.
+
+find /hana/shared/NDB/HDB00/backup/log/SYSTEMDB/ -mtime +1 -exec mv "{}" /home/sstorage/f1tb/Hana/logs -vvv \;

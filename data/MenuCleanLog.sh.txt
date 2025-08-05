@@ -1,0 +1,141 @@
+#!/bin/bash
+#by David Baez
+clear
+while :
+do
+#Menu
+#clear
+echo -e "\e[1;34m"
+echo 'Revisión de datos SAP'
+date
+echo -e "\e[1;33m"
+echo " Limpieza de Log SAP by dbaez "
+echo -e "\e[1;32m"
+echo ""
+echo "1. Mostrar Estructura de Disco"
+echo "2. Limpiar Log en SYSTEMDB"
+echo "3. Borrar Backup por Mes"
+echo "5. Agregar Alias l=ls -ahl"
+echo "6. Mostrar Fecha"
+echo "7. Editar Archivo"
+echo "8. Limpiar pantalla" 
+echo -e "\e[1;31m""9. Salir"
+echo -e "\e[1;34m"
+
+#Escoger menu
+echo -n "Escoger opcion: "
+read opcion
+#Seleccion de menu
+case $opcion in
+
+1)     echo -e "\e[3;37m"
+        echo '┌───────────────────────────────────────────────────────────────────────────────────────────────────┐'
+        echo '│Mostrando Estructura de Disco                                                                      │'
+        echo '└───────────────────────────────────────────────────────────────────────────────────────────────────┘'
+	# Mostrando estructura del disco con el comando df -h
+        df -h
+        echo -e "\e[1;31m"
+        echo "Copia la información que necesites, antes de continuar..."
+        echo -e "\e[1;33m" " --Fin de la Linea--"
+
+        # Mensaje de presionar Enter para continuar...
+        echo -e "\e[1;93m" "Presione \033[5mEnter\033[0m \e[1;93mpara continuar.."
+
+        read foo
+        ;;
+
+2)
+#     	echo "Mostrar todas los directorios Involucrados"
+#	echo -e "\e[1;93m"
+#	echo -e "\033[5mEspere un momento por favor...\033[0m"
+        echo '┌───────────────────────────────┐'
+        echo '│ Limpiando LOG en SYSTEMDB...  │'
+        echo '└───────────────────────────────┘'
+#        echo -e "\e[1;93m"
+	# Color amarillo "\e[1;93m"
+	# Parpadeo de frase "\033[5m FRASE A PARPADEAR \033[0m"
+
+#	echo -e "\e[1;93m" "\033[5mEspere un momento por favor, Generando Consulta...\033[0m"
+	echo -e "\e[1;93m" Espere un momento por favor, "\033[5mGenerando Consulta...\033[0m"
+        echo '┌───────────────────────────────────────────┐'
+        echo '│ Mostrando espacio ocupado en SYSTEMDB...  │'
+        echo '└───────────────────────────────────────────┘'
+	echo 
+	du -sh /hana/shared/NDB/HDB00/backup/log/SYSTEMDB/
+
+	echo -e "\e[1;93m" Espere un momento por favor, "\033[5mGenerando Consulta...\033[0m"
+        echo '┌──────────────────────────────────────┐'
+        echo '│ Limpiando Log viejos en SYSTEMDB...  │'
+        echo '└──────────────────────────────────────┘'
+	echo 
+	echo "Cuantos días les gustaria suprimir"
+	read ndias
+	find /hana/shared/NDB/HDB00/backup/log/SYSTEMDB -mtime +$ndias -exec rm -rf {} \;
+
+	echo ''
+        echo '┌───────────────────────────────────────────────────────────────────────────────────────────────────┐'
+        echo '│Consulta detallada para >> hana >> shared...                                                       │'
+        echo '└───────────────────────────────────────────────────────────────────────────────────────────────────┘'
+
+       echo '-----------------------------------------------------------'
+	echo ''
+	echo 'Directorio: >> hana >> shared >> NDB >> HDB00 >> backup >> log >> SYSTEMDB.'
+        echo '--------------------------------------------------------------------'
+	du -sh /hana/shared/NDB/HDB00/backup/log/SYSTEMDB/
+        echo '--------------------------------------------------------------------'
+	df -h
+	echo -e "\e[1;31m"
+        echo "Copia la información que necesites, antes de continuar..."
+	echo -e "\e[1;33m" " --Fin de la Linea--"
+
+	#        echo 'Precione Enter para continuar...'
+        echo -e "\e[1;93m" "Presione \033[5mEnter\033[0m \e[1;93mpara continuar.."
+
+	read foo
+	;;
+
+3) echo "Llamando script"
+	echo "Favor sea cauteloso al poner el mes "
+	echo "Debajo se listan las carpetas"
+	echo ""
+	ls -lah /hana/shared/backup_service/backups/NDB_sdophana_30013/NDB/SBO_ICDA/
+	echo ""
+	./sc.sh
+	read foo
+
+	;;
+
+
+5) echo "Alias Agregado..."
+        alias l='ls -alh'
+        echo -e "\e[1;93m" "Presione \033[5mEnter\033[0m \e[1;93mpara continuar.."
+        read foo
+
+        ;;
+
+
+6) echo "Mostrar Fecha"
+	date
+	read foo
+	;;
+
+
+7) echo "Editar Archivo"
+	vim MenuCleanLog.sh
+	#clear
+	read foo
+	;;
+
+8) echo "Limpiar pantalla"
+	clear
+	echo 'Presione Enter por favor...'	
+	read foo
+	;;
+
+9)exit 0;;
+
+#Alerta
+*)echo "Opcion invalida..."
+	sleep 1
+	esac
+done

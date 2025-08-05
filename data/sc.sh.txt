@@ -1,0 +1,23 @@
+ii#!/bin/bash
+
+# Solicitar al usuario que ingrese el mes (o usar 99 por defecto)
+read -p "Ingrese el mes a Eliminar(por ejemplo, 01 para Enero) : " mes
+
+# Asignar un valor por defecto de "99" si no se proporciona ningún valor
+mes=${mes:-99}
+
+# Construir la ruta completa
+ruta="/hana/shared/backup_service/backups/NDB_sdophana_30013/NDB/SBO_ICDA"
+
+# Construir el patrón de eliminación
+patron="$ruta/bck_2023${mes}*"
+
+# Verificar si se encontraron carpetas que coincidan con el patrón
+if compgen -G "$patron" > /dev/null; then
+  # Ejecutar el comando de eliminación
+  rm -r $patron
+  echo "Carpetas con el patrón '$patron' eliminadas con éxito."
+else
+  echo "No se encontraron carpetas con el patrón '$patron'. Ninguna eliminación realizada."
+fi
+

@@ -1,0 +1,172 @@
+Pasos para apagar el servicio de HANA y reiniciar el servidor SUSE
+
+************************************************************
+Paso 1	- Entramos en la parte administrativa → su - hdbadm ←
+************************************************************
+SAPQA:~ # su - acqadm
+************************************************************
+
+************************************************************
+Paso 2	- pasamos sap con el siguiente comando → stopsap ←
+************************************************************
+SAPQA:acqadm 54> stopsap
+************************************************************
+========================================================================
+Checking HDB Database
+Database is running
+-------------------------------------------
+stopping the SAP instance D00
+Shutdown-Log is written to /home/acqadm/stopsap_D00.log
+-------------------------------------------
+/usr/sap/ACQ/D00/exe/sapcontrol -prot NI_HTTP -nr 00 -function Stop
+Instance on host SAPQA stopped
+Waiting for cleanup of resources
+.................
+stopping the SAP instance ASCS01
+Shutdown-Log is written to /home/acqadm/stopsap_ASCS01.log
+-------------------------------------------
+/usr/sap/ACQ/ASCS01/exe/sapcontrol -prot NI_HTTP -nr 01 -function Stop
+Instance on host SAPQA stopped
+Waiting for cleanup of resources
+.
+ Cannot find stopdb, DB shutdown failed
+
+please send the tracefile /home/acqadm/stopsap.trc to support
+========================================================================
+
+************************************************************
+Paso 3	- Paramos el servicio con → HDB stop ←
+************************************************************
+hdbadm@SAPQA:/usr/sap/HDB/HDB02> HDB stop
+************************************************************
+	- Luego esperar unos minutos
+		18.10.2024 15:13:00
+		18.10.2024 15:18:32
+	- Tubo una duración de 5 minutos
+************************************************************
+========================================================================
+		hdbdaemon will wait maximal 300 seconds for NewDB services finishing.
+		Stopping instance using: /usr/sap/HDB/SYS/exe/hdb/sapcontrol -prot NI_HTTP -nr 02 -function Stop 400
+
+		18.10.2024 15:13:00
+		Stop
+		OK
+		Waiting for stopped instance using: /usr/sap/HDB/SYS/exe/hdb/sapcontrol -prot NI_HTTP -nr 02 -function WaitforStopped 600 2
+
+
+		18.10.2024 15:18:32
+		WaitforStopped
+		OK
+		hdbdaemon is stopped.
+========================================================================
+
+************************************************************
+Paso 4	- Salimos de la instancia con → exit ←
+************************************************************
+hdbadm@SAPQA:/usr/sap/HDB/HDB02> exit
+logout
+
+
+************************************************************
+Paso 5 	- Reiniciamos el servidor con → reboot ←
+************************************************************
+SAPQA:~ # reboot
+
+
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+
+Pasos para iniciar el servicio de SAP HANA
+
+
+************************************************************
+Paso 6 	- Elevamos los privilegios con  → su - hdbadm ←
+************************************************************
+
+SAPQA:~ # su - acqadm
+
+************************************************************
+Paso 7 	- Luego iniciamos el HANA DB con  → HDB start ←
+************************************************************
+
+hdbadm@SAPQA:/usr/sap/HDB/HDB02> HDB start
+
+======================================================================================================
+
+StartService
+Impromptu CCC initialization by 'rscpCInit'.
+  See SAP note 1266393.
+OK
+OK
+Starting instance using: /usr/sap/HDB/SYS/exe/hdb/sapcontrol -prot NI_HTTP -nr 02 -function StartWait 2700 2
+
+
+18.10.2024 15:32:45
+Start
+OK
+
+18.10.2024 15:36:49
+StartWait
+OK
+
+======================================================================================================
+		La duración fue de 5 minutos
+		18.10.2024 15:32:45	
+		18.10.2024 15:36:49
+======================================================================================================
+
+******************************************************************************************************
+Paso 8 	- Luego salimos de la instancia de HANA DB para inciar a SAP, salimos con → exit ←
+******************************************************************************************************
+
+hdbadm@SAPQA:/usr/sap/HDB/HDB02> exit
+logout
+
+******************************************************************************************************
+Paso 9 	- Ahora vamos a iniciar a SAP y para eso elevamos los privilegios con → su - acqadm ←
+******************************************************************************************************
+
+SAPQA:~ # su - acqadm
+
+******************************************************************************************************
+Paso 10	- Ahora con el sigeuinte comando iniciarmos a SAP → startsap r3 ←
+******************************************************************************************************
+SAPQA:acqadm 54> startsap r3
+
+======================================================================================================
+Checking HDB Database
+Database is running
+-------------------------------------------
+Starting Startup Agent sapstartsrv
+OK
+Instance Service on host SAPQA started
+-------------------------------------------
+starting SAP Instance ASCS01
+Startup-Log is written to /home/acqadm/startsap_ASCS01.log
+-------------------------------------------
+/usr/sap/ACQ/ASCS01/exe/sapcontrol -prot NI_HTTP -nr 01 -function Start
+Instance on host SAPQA started
+Starting Startup Agent sapstartsrv
+OK
+Instance Service on host SAPQA started
+-------------------------------------------
+starting SAP Instance D00
+Startup-Log is written to /home/acqadm/startsap_D00.log
+-------------------------------------------
+/usr/sap/ACQ/D00/exe/sapcontrol -prot NI_HTTP -nr 00 -function Start
+Instance on host SAPQA started
+
+SAPQA:acqadm 55>
+======================================================================================================
+
+******************************************************************************************************
+Paso 11 	- Ya Hana tiene que estar iniciado y hemos concluido
+******************************************************************************************************

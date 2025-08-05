@@ -1,0 +1,46 @@
+Repositorio de Instalación de htop
+
+https://hisham.hm/htop/releases/2.2.0/
+
+
+Instalación de htop desde un archivo tar.gz en SUSE Linux SAPHANA
+Para instalar htop en tu sistema SUSE Linux SAPHANA 4.12.14 desde un archivo tar.gz, puedes seguir estos pasos:
+
+1. Descarga el archivo tar.gz:
+
+Si aún no lo has hecho, descarga el archivo tar.gz de htop a tu servidor. Puedes hacerlo utilizando un navegador web o con la línea de comandos mediante la herramienta wget. Por ejemplo:
+
+wget https://hisham.hm/htop/releases/htop-2.2.0.tar.gz
+2. Extrae el archivo tar.gz:
+
+Una vez descargado el archivo, extráelo en el directorio donde deseas instalar htop. Por ejemplo, si deseas instalarlo en el directorio /usr/local, puedes usar el siguiente comando:
+
+tar -xf htop-2.2.0.tar.gz -C /usr/local
+3. Compila e instala htop:
+
+Dirígete al directorio donde se extrajo el contenido del archivo tar.gz (en este caso, /usr/local/htop-2.2.0) y ejecuta los siguientes comandos:
+
+./configure
+make
+sudo make install
+4. Verifica la instalación:
+
+Para verificar que htop se haya instalado correctamente, puedes ejecutar el siguiente comando:
+
+htop
+Esto debería abrir la interfaz gráfica de htop, que te mostrará información detallada sobre el uso de la memoria, la CPU y otros recursos del sistema.
+
+Notas adicionales:
+
+Si encuentras algún error durante la instalación, asegúrate de que tienes permisos de root para ejecutar los comandos.
+También puedes instalar htop agregando el repositorio EPEL y utilizando el gestor de paquetes zypper, como se describe en la respuesta anterior.
+Si tienes problemas para usar htop, puedes consultar la documentación oficial: https://hisham.hm/htop/releases/.
+Espero que esta información te sea útil. Si tienes alguna otra pregunta, no dudes en contactarme.
+
+
+
+
+share
+
+
+more_vert

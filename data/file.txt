@@ -1,5 +1,7 @@
+!dbaezh-
 #generar.bat
 ac0001.txt
+clears4_AC.txt
 cmd001.txt
 Comandos Fortigate 001.txt
 css 001.txt
@@ -10,15 +12,13 @@ Estilo del enlace original.txt
 excel 001.txt
 excel vs 001.txt
 file.txt
-Fortigate01.txt
-Fortigate02.txt
-Fortigate03.txt
-Fortigate04.txt
-Fortigate05.txt
-Fortigate06.txt
-Fortigate07.txt
 gpupdate 001.txt
 hana.txt
+HDBAdmin.sh.txt
+hdbenv.csh.txt
+hdbenv.sh.txt
+HDBSettings.csh.txt
+HDBSettings.sh.txt
 html001.txt
 html002.txt
 html003.txt
@@ -30,13 +30,23 @@ linux 003.txt
 linux Linkiando carpeta.txt
 log dc.txt
 mail.txt
+MenuCleanLog.sh.txt
+mvlogshana.sh.txt
+mvSystemdb.txt
 new 291.txt
 numeros001.txt
 OneDrive error 001.txt
 OneDrive error.txt
 pass01.txt
 powershell001.txt
+Procedimiento para Iniciar HDB y SAP.txt
+proceso HANA.txt
 regedit 001.txt
+repositorio.txt
 SAP montando disco.txt
+sc.sh.txt
+Start and stop hana.txt
+Start and stop hana01.txt
+Start_HanaSAP.sh.txt
 tracerrouteForti.txt
 visualbasic excel01.txt

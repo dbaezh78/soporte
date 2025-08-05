@@ -1,0 +1,273 @@
+#!/bin/sh
+# @(#) $Id$ SAP
+# SAP R/3 Environment - please do not edit
+
+
+doexit=return
+if  expr match "$0" ".*hdbenv.sh$" >/dev/null; then doexit=exit; fi
+#$doexit -1
+
+#
+# this statement remains only because it is edited by installer software. Should be eliminated
+#
+DEFAULTHOSTNAME=sdophana
+
+# For SAP HANA development: put path to locally-built executables here to override installed
+# executables (<build_directory>/gen e.g.: /newdb/build/Debug/gen)
+DEV_PATH=""
+
+checks_and_settings() {
+    local doexit=return
+    #
+    # check for SIDadm user name convention
+    # guess SAPSYSTEMNAME, if not yet defined, and add it to environment
+    #
+    if [ "x$SAPSYSTEMNAME" = "x" ]; then
+        local usr=$(whoami)
+        if expr match ${usr} "[a-z][a-z0-9][a-z0-9]adm" != 6 >/dev/null ; then
+            echo "hdbenv.sh: HDB script requires <sid>adm user, but got '${usr}'"
+            $doexit 1
+        fi
+        SAPSYSTEMNAME=`expr substr "$usr" 1 3 | tr "[:lower:]" "[:upper:]"`
+        export SAPSYSTEMNAME
+    fi
+
+    #
+    # Evaluate Virtual Hostname: given as $1, or found in sapservices, or defaulted to 'physical' hostname
+    #
+    # the next block assures that the variable VTHOSTNAME 'virtual host name' be defined
+    local source
+    if [ "x$_HDBENV_ARG_HOST" != "x" ]; then
+        VTHOSTNAME=$_HDBENV_ARG_HOST
+    elif [ "$1" = "" ]; then
+        [ $# != 0 ] && shift
+        #
+        # get local virtual host name out of sapservices. take only the first host name found if more given
+        # ignore lines commented out
+        #
+        local inputfile=/usr/sap/sapservices
+        local SID=$SAPSYSTEMNAME
+        VTHOSTNAME=`grep "^[  ]*[^#].*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_"  $inputfile | sed "s:.*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_\([^ ]*\).*:\2:" | head -1`
+        if [ "$VTHOSTNAME" = "" ]
+        then
+
+            source="in $inputfile"
+            VTHOSTNAME=`grep "^/usr/sap/waitforhdb.*[#].*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_"  $inputfile | sed "s:.*pf=/.*/${SID}/\(SYS/profile\|profile\)/${SID}_HDB[0-9][0-9]_\([^ ]*\).*:\2:" | head -1`
+        fi
+
+        if [ -z "$VTHOSTNAME" ]
+        then
+           echo "hdbenv.sh: Host name not found out of $inputfile, defaulting to local physical host" >&2
+           source='as physical host'
+           VTHOSTNAME=`hostname`
+        fi
+    else
+      source='on command line'
+      VTHOSTNAME="$1"; shift
+    fi
+
+    #
+    # check for consistency between an already defined SAP_RETRIEVAL_PATH and the VTHOSTNAME evaluated before
+    #
+    if [ "x$SAP_RETRIEVAL_PATH" != "x" ]; then
+        local host=`basename $SAP_RETRIEVAL_PATH`
+        if [ "$VTHOSTNAME" != "$host" ]
+        then
+        echo "hdbenv.sh: Hostname $host defined in \$SAP_RETRIEVAL_PATH=$SAP_RETRIEVAL_PATH differs from host name defined $source." >&2
+        fi
+    fi
+
+    #
+    # guess instance number - there may be only one in this SID per virtual host
+    #
+    TINSTANCE=`find /usr/sap/"$SAPSYSTEMNAME"/SYS/profile/"$SAPSYSTEMNAME"_HDB[0-9][0-9]_$VTHOSTNAME -exec expr substr {} 33 2 \; 2>/dev/null`
+
+    # variable 'COMMAND' may be set by the 'HDB' command script sourcing this file:
+    if [ ${#TINSTANCE} -lt 2 ] && [ "$COMMAND" = "start" ]; then # find any instance
+      TINSTANCE=`find /usr/sap/"$SAPSYSTEMNAME"/SYS/profile/"$SAPSYSTEMNAME"_HDB[0-9][0-9]_* -exec expr substr {} 33 2 \; 2>/dev/null`
+      if [ ${#TINSTANCE} -gt 2 ]; then # take only first
+        TINSTANCE=`expr substr "$TINSTANCE" 1 2`
+      fi
+    fi
+    if [ ${#TINSTANCE} -lt 2 ]; then
+        echo "hdbenv.sh: Error: Instance not found for host $VTHOSTNAME"
+        $doexit 1
+    fi
+    if [ ${#TINSTANCE} -gt 2 ]; then
+        echo "hdbenv.sh: Error: Found more than one instances: `expr \( ${#TINSTANCE} + 1 \) \/ 3` "
+        $doexit 1
+    fi
+    export TINSTANCE
+
+    #
+    # Environment variables
+    #
+
+    # defining variables here
+    DIR_INSTANCE=/usr/sap/"$SAPSYSTEMNAME"/HDB"$TINSTANCE"
+    # check for correct hostname directory before changing variables
+    if [ ! -e $DIR_INSTANCE/$VTHOSTNAME ]; then
+      echo "hdbenv.sh: Did not find directory $DIR_INSTANCE/$VTHOSTNAME: Wrong host '$VTHOSTNAME' -- you must source ~/hdbenv.sh [<virt hostname>]" >&2
+      $doexit 1
+    fi
+    DIR_SYSEXE=/usr/sap/$SAPSYSTEMNAME/SYS/exe/hdb
+    DIR_EXECUTABLE=$DIR_INSTANCE/exe
+    SAP_RETRIEVAL_PATH=$DIR_INSTANCE/$VTHOSTNAME
+    #DAT_BIN_DIR=$DIR_EXECUTABLE/DAT
+    if [ ! -n "${DEV_PATH}" ]; then
+      DAT_BIN_DIR=$DIR_EXECUTABLE/dat_bin_dir
+    else
+      DAT_BIN_DIR=$DEV_PATH/dat_bin_dir
+    fi
+
+    SECUDIR=$SAP_RETRIEVAL_PATH/sec
+
+    PYTHONPATH=/usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/custom/python_support:$DIR_EXECUTABLE/python_support:$SAP_RETRIEVAL_PATH:$DIR_EXECUTABLE:$DIR_EXECUTABLE/testscripts:$DIR_EXECUTABLE/Python/lib/python2.7
+    PYTHONHOME=$DIR_EXECUTABLE/Python
+
+    # Multi-threading concept of OpenMP is not compatible with HANA multi-threading concept, but is used by some 3rd party libs: deactivate it
+    OMP_NUM_THREADS=1
+    export OMP_NUM_THREADS
+
+    #
+    # umask
+    #
+
+    umask 027
+
+    PLATFORM=$(uname -m)
+
+    #
+    # edit predefined environment variables
+    #
+
+    # update PATH variable (e.g. if started via /usr/sap/sapservices)
+    if [ x$HOME = x ] ; then
+      local user=`id -u -n`
+      local home=`getent passwd $user|cut -d: -f6`
+      PATH=$home:$PATH
+    fi
+    PATH=$SAP_RETRIEVAL_PATH:$DIR_INSTANCE:$DIR_EXECUTABLE:$DIR_EXECUTABLE/mdc:$DIR_EXECUTABLE/Python/bin:$DAT_BIN_DIR:$PATH
+    _FEDERATION_LIB_PATH=/usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/federation
+    if [ -n "${LD_LIBRARY_PATH:-}" ]; then
+      LD_LIBRARY_PATH=$DIR_EXECUTABLE:$DIR_EXECUTABLE/Python/lib:$DIR_EXECUTABLE/filter:$DAT_BIN_DIR:$DIR_EXECUTABLE/plugins/afl:$DIR_EXECUTABLE/plugins/lcapps:$DIR_EXECUTABLE/plugins/repository:$DIR_EXECUTABLE/plugins/epmmds:$_FEDERATION_LIB_PATH:/usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/plugins/3rd_party_libs:$LD_LIBRARY_PATH
+      if [ "$PLATFORM" = "ppc64" ]; then
+         LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ibmcmp/lib64
+      fi
+    else
+      LD_LIBRARY_PATH=$DIR_EXECUTABLE:$DIR_EXECUTABLE/Python/lib:$DIR_EXECUTABLE/filter:$DAT_BIN_DIR:$DIR_EXECUTABLE/plugins/afl:$DIR_EXECUTABLE/plugins/lcapps:$DIR_EXECUTABLE/plugins/repository:$DIR_EXECUTABLE/plugins/epmmds:$_FEDERATION_LIB_PATH:/usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/plugins/3rd_party_libs
+      if [ "$PLATFORM" = "ppc64" ]; then
+         LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ibmcmp/lib64
+      fi
+    fi
+    if [ -n "${DEV_PATH}" ]; then
+      if [ -e "${DEV_PATH}/hdbdevenv.sh" ]; then
+        . "${DEV_PATH}/hdbdevenv.sh"
+      else
+        PATH=${DEV_PATH}:${DEV_PATH}/dat_bin_dir:$PATH
+        LD_LIBRARY_PATH=${DEV_PATH}:${DEV_PATH}/dat_bin_dir:${DEV_PATH}/filter:$LD_LIBRARY_PATH
+        PYTHONPATH=${DEV_PATH}:${DEV_PATH}/python_support:${DEV_PATH}/../../sys/src/nutest/lib:${DEV_PATH}/../../sys/src/nutest/testscripts:$PYTHONPATH
+      fi
+
+      export DEV_PATH
+    fi
+
+#
+# Setup KRB5 use
+#
+    PATH="${DIR_EXECUTABLE}/krb5/bin":"${DIR_EXECUTABLE}/krb5/sbin":$PATH
+    LD_LIBRARY_PATH="${DIR_EXECUTABLE}/krb5/lib/krb5/plugins/preauth":"${DIR_EXECUTABLE}/krb5/lib":$LD_LIBRARY_PATH
+
+    if [ -z "${KRB5_CONFIG:-}" -a -e "${HOME}/etc/krb5_hdb.conf" ]; then
+      KRB5_CONFIG="${HOME}/etc/krb5_hdb.conf"
+    fi
+
+    if [ -z "${KRB5_KTNAME:-}" -a -e "${HOME}/etc/krb5_hdb.keytab" ]; then
+      KRB5_KTNAME="${HOME}/etc/krb5_hdb.keytab"
+    fi
+
+    if [ -z "${KRB5_CLIENT_KTNAME:-}" -a -e "${HOME}/etc/krb5_host.keytab" ]; then
+      KRB5_CLIENT_KTNAME="${HOME}/etc/krb5_host.keytab"
+    fi
+
+    export KRB5_CONFIG KRB5_KTNAME KRB5_CLIENT_KTNAME
+#####
+
+    ASAN_OPTIONS=alloc_dealloc_mismatch=0:log_path=$DIR_INSTANCE/$VTHOSTNAME/trace/AddressSanitizer_Crashdump:handle_segv=0:allow_user_segv_handler=1:abort_on_error=1:check_initialization_order=1:detect_leaks=0:detect_odr_violation=0:use_sigaltstack=0:allocator_may_return_null=1
+    ASAN_SYMBOLIZER_PATH=$DIR_EXECUTABLE/llvm-symbolizer
+    TSAN_OPTIONS=exitcode=0:log_path=$DIR_INSTANCE/$VTHOSTNAME/trace/ThreadSanitizer_Report
+
+    export DIR_INSTANCE DIR_EXECUTABLE SAP_RETRIEVAL_PATH PATH LD_LIBRARY_PATH PYTHONPATH PYTHONHOME SECUDIR DIR_SYSEXE DAT_BIN_DIR
+    export ASAN_OPTIONS ASAN_SYMBOLIZER_PATH TSAN_OPTIONS
+
+    # Force symbol resolution at load time, except for ppc64 where it is broken
+    if [ "$PLATFORM" != "ppc64" ]; then
+        LD_BIND_NOW=1
+        export LD_BIND_NOW
+    fi
+} # checks_and_settings
+
+if ! checks_and_settings $1
+then
+    $doexit 1
+fi
+
+if [ "$1" = "" ]; then
+    [ $# != 0 ] && shift
+elif [ "$_HDBENV_ARG_HOST" = "" ]; then
+    shift
+elif [ "$1" = "$_HDBENV_ARG_HOST" ]; then
+    shift
+fi
+
+#
+# define some nice aliases: has effect outside, if the script is called by source or '.' command
+#
+alias cdexe='cd $DIR_SYSEXE'
+alias cdins='cd /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/install'
+alias cdhdb='cd $DIR_INSTANCE'
+alias cdpy='cd $DIR_INSTANCE/exe/python_support'
+alias cdtrace='cd $DIR_INSTANCE/$VTHOSTNAME/trace'
+alias cdwork='cd $DIR_INSTANCE/$VTHOSTNAME/work'
+
+alias cdvsi='cd /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi'
+alias vsigui='java -jar $DIR_SYSEXE/vsi.jar -cfg /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties'
+alias vsiinfo='java -jar $DIR_SYSEXE/vsi.jar info -cfg /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties'
+alias vsioff='mv /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.backup_$(date +%F_%R); touch /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties' 
+alias vsitest='java -jar $DIR_SYSEXE/vsi.jar scanbytes -cfg /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties EICAR'
+alias vsiscan='java -jar $DIR_SYSEXE/vsi.jar scan -cfg /usr/sap/$SAPSYSTEMNAME/SYS/global/hdb/security/vsi/vsi.properties'
+
+
+#
+# change to HDB instance dir; has effect outside, if the script is called by source or '.' command
+#
+cd $DIR_INSTANCE
+
+#
+# execute remaining arguments
+#
+if [ "x$*" != "x" ] ; then
+  if [ "x$1" = "x-cd-hdb" ] ; then
+    shift
+    cd $SAP_RETRIEVAL_PATH
+  fi
+  if [ "x$1" = "x-start" ] ; then
+    shift
+    $* >/dev/null 2>/dev/null &
+  elif [ "x$1" = "x-echo-env" ] ; then
+    shift
+    echo DIR_INSTANCE=$DIR_INSTANCE
+    echo DIR_EXECUTABLE=$DIR_EXECUTABLE
+    echo SAP_RETRIEVAL_PATH=$SAP_RETRIEVAL_PATH
+    echo PATH=$PATH
+    echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+    echo PYTHONPATH=$PYTHONPATH
+    echo PYTHONHOME=$PYTHONHOME
+    echo DAT_BIN_DIR=$DAT_BIN_DIR
+  elif [ x`basename $1 .py`.py = x`basename $1` ] ; then
+    cd $DIR_EXECUTABLE/python_support
+    python "$@"
+  else
+    "$@"
+  fi
+fi
