@@ -1,0 +1,45 @@
+UCS CISCO Server
+show system
+
+show system detail
+show server inventory
+show server status
+show fabric-interconnect
+show fabric-interconnect a
+show fabric-interconnect b
+
+show event
+
+ucs-B# show chassis detail
+
+Chassis:
+    Chassis: 1
+    User Label:
+    Chassis Profile:
+    Overall Status: Operable
+    Oper qualifier: N/A
+    Operability: Operable
+    Conf State: Ok
+    Admin State: Acknowledged
+    Conn Path: A,B
+    Conn Status: A,B
+    Managing Instance: B
+    Product Name: Cisco UCS 5108 AC2 Chassis
+    PID: UCSB-5108-AC2
+    VID: V04
+    Part Number: 68-5091-05
+    Vendor: Cisco Systems Inc
+    Model: UCSB-5108-AC2
+    Serial (SN): FOX2237P72H
+    HW Revision: 0
+    Mfg Date: 2018-09-04T00:00:00.000
+    Power State: Ok
+    Thermal Status: Ok
+    SEEPROM operability status: Operable
+    Dynamic Reallocation: Chassis
+    Reserved Power Budget (W): 600
+    PSU Capacity (W): 3900
+    PSU Line Mode: Low Line
+    PSU State: Ok
+    Current Task 1:
+    Current Task 2:
