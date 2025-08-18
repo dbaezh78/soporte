@@ -67,37 +67,3 @@ C:\Program Files\sap\hdbstudio
 select max(STCEG) "ULT. NCF" from VBRK
  where BUKRS = '5530'
    and STCEG like 'B01%'
-
-* POSIBILIA
-
-Hana Studio
-
-172.16.4.13
-172.16.4.13:30215
-PRD (Produccion)
-HDB
-Acp12345
-
-172.16.4.11
-QAS (Calidad)
-HDB
-Acq12345
-
-172.16.4.12
-DEV (Desarrollo)
-HDB
-Acd12345
-
-
-check user
-saphanadb
-
-saphana:4302
-
-
-nimbox
-Nimbox!.3000
-
-
-usuario:	POSIBILIA
-contraseña:	Lacsa2024*d
