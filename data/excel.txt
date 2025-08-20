@@ -1,10 +1,3 @@
-vb
-
-=SumarE1HojaAnterior()+1
-
-
-
-
 Sub Indice()
     Dim sheetdb As Worksheet
     Dim rowStart As Integer
@@ -105,7 +98,7 @@ End Sub
 
 
 
-//
+// Contar el numero de la pagina Anterior
 
 
 Function SumarE1HojaAnterior() As Variant
@@ -227,4 +220,26 @@ Private Sub Worksheet_Activate()
 Dim PreviousState As Variant
 indice
 End Sub
+
+// Copiando un rango de contenido desde un punto hasta el final
+
+Sub Button_JS_Click()
+    Dim hojaActual As Worksheet
+    Dim rangoACopiar As Range
+    Dim ultimaFila As Long
+
+    ' Usar la hoja activa (donde está el botón)
+    Set hojaActual = ActiveSheet
+    ' Encontrar la última fila con datos en la columna L
+    ultimaFila = hojaActual.Cells(hojaActual.Rows.Count, "L").End(xlUp).Row
+
+    ' Definir el rango desde L2 hasta la última fila con datos
+    If ultimaFila >= 2 Then
+        Set rangoACopiar = hojaActual.Range("L2:L" & ultimaFila)
+        rangoACopiar.Copy
+    Else
+        MsgBox "No hay datos para copiar en la columna L desde L2 en adelante.", vbExclamation
+    End If
+End Sub
+
 
