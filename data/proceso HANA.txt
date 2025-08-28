@@ -59,7 +59,7 @@ Startup-Log is written to /home/acpadm/startsap_D00.log
 
 ********************************************************************************************************
 
-Ricoh123456
+R**********
 
 
 C:\Program Files\sap\hdbstudio

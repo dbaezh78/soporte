@@ -4,6 +4,7 @@ ac0001.txt
 clears4_AC.txt
 cmd001.txt
 Comandos Fortigate 001.txt
+Consultando Cisco UCS.txt
 css 001.txt
 css 002.txt
 css 003.txt
@@ -11,6 +12,8 @@ css 004 - variables.txt
 Estilo del enlace original.txt
 excel 001.txt
 excel vs 001.txt
+Excel.txt
+Excel01.txt
 file.txt
 gpupdate 001.txt
 hana.txt
@@ -22,7 +25,9 @@ HDBSettings.sh.txt
 html001.txt
 html002.txt
 html003.txt
+Impresora Ricoh Print.txt
 js 001 colapso.txt
+justificar en css.txt
 linkiando una carpeta linux.txt
 linux 001.txt
 linux 002 montar disco.txt
@@ -48,5 +53,5 @@ sc.sh.txt
 Start and stop hana.txt
 Start and stop hana01.txt
 Start_HanaSAP.sh.txt
+Sub indice().vb
 tracerrouteForti.txt
-visualbasic excel01.txt
