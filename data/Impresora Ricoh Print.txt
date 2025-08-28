@@ -1,0 +1,16 @@
+Cuando la impresora Ricoh no funciona correctamente, porque se ha ha apagado muchas veces incorrectamente, deja de funcionar  y seguimos el siguiente proceso
+
+presionamos el ultimo Boton lateral + en la pantalla donde dice a la izquierda de abajo Comprobar estado
+cuando nos salga la pantalla presionamos 
+1 - RESET
+2 - 806182
+3 - Dejar presionado la tecla C hasta que nos salga el menu de opciones
+en el menu de opciones en la parte superior presionamos un boton llamado
+- SYSTEM SP
+
+luego buscamos el la opcion de formatear el disco,
+El codigo es
+- 5832: HDD, opc:1 Formatear disco HDD
+- EXECUTE : Ejecutar y listo, esperamos que la impresora haga el proceso
+- Cuando termine reiniciamos la impresora.
+- si no fube correctamente, desde la aplicacion web https://sserver.laantillana.local:9000/ y le enviamos el comando de configurar y reiniciar
