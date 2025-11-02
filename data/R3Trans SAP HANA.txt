@@ -1,0 +1,16 @@
+Entrando en modo administracion por problema al subir la base de datos
+
+SAPDEV:~ # su - acdadm
+con el siguiente comando iniciamos la capura de los log de trans
+SAPDEV:acdadm 52> R3trans -d
+
+luego podemos ver los log y saber si tenemos alguna situacion con la base de datos 
+como 0012 que sería usuario bloqueado.
+
+cuando sale 
+R3trans finished (0000).
+quiere decir que todo está bien.
+
+luego podemos ver los que tienen con el siguientes comando
+SAPDEV:acdadm 53> less trans.log
+

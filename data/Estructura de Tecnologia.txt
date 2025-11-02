@@ -1,0 +1,25 @@
+- Revisión de toda la estructura de tecnología existente
+	* Seguridad
+	* Redes
+	* Servidores
+	* Nubes
+	* Data Center
+	* IDF
+- Funcionamiento de toda la estructura
+- Respaldo de toda la estructura funcional actual
+- Crear Control de versiones de toda la estructura de tecnología iniciando en V.0.00
+	* cada cambio significativo aumentará v.1.00.
+	* cada cambio insignificativo aumentará v.0.01.
+- Identificación de todo lo que no funciona, que sea necesario hacer que funcione
+- Crear estructura de respaldo recurente de todo lo funcional.
+- Revisión de presupuesto para el departamento de tecnología y su integridad e historial del mismo de los ultimos 3 años
+	* Revisión de CAPEX
+	* Revisión de OPEX
+	* Presupuesto de respaldo o imprevistos  equivalente al 10% para gastos no controlados, como compra de una pc o equipo que murio en el proceso.
+	* IPC: Indice de precio del consumidor
+	* si tengo un presupuesto de los ultimos 5 años tengo que contar con el presupuesto de esta promedio
+	*500--------|498------|501------|501------|510------|>
+	* Promedio = 502
+- ROI: Retorno de la inverión (Retorn of Invesment)
+
+	
